@@ -128,6 +128,8 @@ section{padding-block:clamp(3.2rem,8vw,5.5rem);border-top:1px solid var(--rule-s
 .viz{margin-top:.45rem;background:var(--navy);border:1px solid var(--rule-soft);border-radius:5px;padding:.85rem .95rem .65rem;display:flex;flex-direction:column;gap:.5rem}
 .viz svg{width:100%;height:auto;display:block}
 .cap{font-family:"JetBrains Mono",monospace;font-size:.61rem;letter-spacing:.09em;text-transform:uppercase;color:#5A6482}
+.try{align-self:flex-start;margin-top:auto;padding-top:.2rem;font-size:.86rem;font-weight:600;color:var(--accent);text-decoration:none}
+.try:hover,.try:focus-visible{text-decoration:underline;text-underline-offset:3px}
 
 /* ── foundation band ────────────────────────────────────── */
 .foundation{
@@ -280,6 +282,27 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
             </svg>
             <div class="cap">Preview — proposed, not prescribed</div>
           </div>
+          <a class="try" href="mailto:tim@smartplaycaddie.com?subject=Beta%20access%20request%3A%20SmartPump">Request beta access &rarr;</a>
+        </article>
+
+        <article class="card" style="--accent:#6B93FF">
+          <div class="card-head">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 17c3-6 5-9 8-9s4 6 7 6 3-3 3-3" stroke="#6B93FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><h3>SmartMotion</h3><div class="sub">Move smarter. Play better.</div></div>
+            <span class="chip">Beta</span>
+          </div>
+          <p>Camera-based motion analysis for golf, baseball and soccer &mdash; record a movement, see what it did, then work it with drills the camera scores.</p>
+          <a class="try" href="mailto:tim@smartplaycaddie.com?subject=Beta%20access%20request%3A%20SmartMotion">Request beta access &rarr;</a>
+        </article>
+
+        <article class="card" style="--accent:#4D8BFF">
+          <div class="card-head">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="7" stroke="#4D8BFF" stroke-width="2"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="#4D8BFF" stroke-width="2" stroke-linecap="round"/></svg>
+            <div><h3>SmartFinder</h3><div class="sub">Know the number.</div></div>
+            <span class="chip">Beta</span>
+          </div>
+          <p>A GPS rangefinder that averages a burst of fixes and tells you how sure it is, instead of showing a precise-looking number it can&rsquo;t back up.</p>
+          <a class="try" href="mailto:tim@smartplaycaddie.com?subject=Beta%20access%20request%3A%20SmartFinder">Request beta access &rarr;</a>
         </article>
 
         <article class="card" style="--accent:#A78BFA">
@@ -289,6 +312,31 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
             <span class="chip live">Beta</span>
           </div>
           <p>Unified intelligence for teams, operations and everyday complexity. The day's brief, what's overdue and what to do next — assembled before you ask for it.</p>
+          <a class="try" href="mailto:tim@smartplaycaddie.com?subject=Beta%20access%20request%3A%20SmartManage">Request beta access &rarr;</a>
+        </article>
+
+        <article class="card" style="--accent:#A78BFA">
+          <div class="card-head">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5Z" stroke="#A78BFA" stroke-width="2" stroke-linejoin="round"/><path d="M12 6.5v13" stroke="#A78BFA" stroke-width="2"/></svg>
+            <div><h3>The Inner Library</h3><div class="sub">A book built around you</div></div>
+            <span class="chip live">Live</span>
+          </div>
+          <p>Personal guides, novels, biographies, textbooks, alternate histories and reimagined classics, written one chapter at a time. Researched chapters are cited and fact-checked against their sources, and anything it couldn&rsquo;t verify is flagged. Free, no account &mdash; your books stay in your own browser.</p>
+          <div class="viz">
+            <svg viewBox="0 0 300 68" role="img" aria-label="Preview: a chapter with a numbered citation, and a fact-check note flagging one date the research did not support.">
+              <line x1="6" y1="12" x2="170" y2="12" stroke="#2A3358" stroke-width="4" stroke-linecap="round"/>
+              <line x1="6" y1="24" x2="150" y2="24" stroke="#2A3358" stroke-width="4" stroke-linecap="round"/>
+              <text x="156" y="27" fill="#A78BFA" font-family="JetBrains Mono,monospace" font-size="8.5">[3]</text>
+              <line x1="6" y1="36" x2="164" y2="36" stroke="#2A3358" stroke-width="4" stroke-linecap="round"/>
+              <line x1="6" y1="48" x2="118" y2="48" stroke="#2A3358" stroke-width="4" stroke-linecap="round"/>
+              <rect x="190" y="8" width="104" height="44" fill="none" stroke="#A78BFA" stroke-dasharray="3 3"/>
+              <text x="199" y="23" fill="#A78BFA" font-family="JetBrains Mono,monospace" font-size="8.5">FACT CHECK</text>
+              <text x="199" y="36" fill="#8891A8" font-family="JetBrains Mono,monospace" font-size="8.5">1 date not in</text>
+              <text x="199" y="47" fill="#8891A8" font-family="JetBrains Mono,monospace" font-size="8.5">its sources</text>
+            </svg>
+            <div class="cap">Preview &mdash; cited, and flagged where unsupported</div>
+          </div>
+          <a class="try" href="https://inner-library-snowy.vercel.app" target="_blank" rel="noopener">Try it free &rarr;</a>
         </article>
 
         <article class="card" style="--accent:#2563FF">
@@ -312,6 +360,7 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
             </svg>
             <div class="cap">Preview &mdash; unknown fails safe, not convenient</div>
           </div>
+          <a class="try" href="mailto:tim@smartplaycaddie.com?subject=Beta%20access%20request%3A%20SmartPlay%20DIY">Request beta access &rarr;</a>
         </article>
 
         <article class="card" style="--accent:#8B5CF6">
@@ -338,6 +387,7 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
             </svg>
             <div class="cap">Preview — the option, read early</div>
           </div>
+          <a class="try" href="mailto:tim@smartplaycaddie.com?subject=Beta%20access%20request%3A%20Rondo">Request beta access &rarr;</a>
         </article>
 
         <article class="card" style="--accent:#6B93FF">
@@ -347,6 +397,7 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
             <span class="chip">Concept</span>
           </div>
           <p>Recreation and lifestyle intelligence — the same engine pointed at how people spend their free time, and what would make it better.</p>
+          <a class="try" href="mailto:tim@smartplaycaddie.com?subject=Beta%20access%20request%3A%20PlaySmart">Request beta access &rarr;</a>
         </article>
 
       </div>
@@ -403,6 +454,8 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
             <li>Course-aware distance and targeting from real course geometry.</li>
             <li>Cross-platform beta distribution with real testers and a written handbook.</li>
             <li>A professional instructor using the product inside paid lessons.</li>
+            <li>SmartPump, SmartMotion and SmartFinder running as betas.</li>
+            <li>The Inner Library: personalized books written chapter by chapter, with researched chapters cited and fact-checked against their sources.</li>
           </ul>
         </div>
         <div>
@@ -413,7 +466,7 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
             <li>Streaming avatar presence for the companion.</li>
             <li>Smart-glasses and multi-sensor perception.</li>
             <li>An auto-compiled video content engine.</li>
-            <li>Every product other than SmartPlay Caddie and SmartManage.</li>
+            <li>SmartPlay DIY, Rondo and PlaySmart.</li>
           </ul>
         </div>
       </div>
