@@ -131,6 +131,12 @@ section{padding-block:clamp(3.2rem,8vw,5.5rem);border-top:1px solid var(--rule-s
 .try{align-self:flex-start;margin-top:auto;padding-top:.2rem;font-size:.86rem;font-weight:600;color:var(--accent);text-decoration:none}
 .try:hover,.try:focus-visible{text-decoration:underline;text-underline-offset:3px}
 
+.shot{display:block;margin:-1.5rem -1.4rem .4rem;border-bottom:1px solid var(--rule-soft);background:var(--navy);overflow:hidden;border-radius:8px 8px 0 0;aspect-ratio:4/5}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.lab .shot{aspect-ratio:16/10}
+.grp{font-family:Sora;font-weight:600;font-size:1.1rem;margin:2.4rem 0 .3rem;color:var(--off)}
+.grp:first-of-type{margin-top:0}
+.grp-lede{color:var(--silver-dim);font-size:.92rem;margin-bottom:1.1rem}
 /* ── foundation band ────────────────────────────────────── */
 .foundation{
   margin-top:1.4rem;border:1px solid var(--rule-soft);border-radius:8px;
@@ -250,139 +256,98 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
         <h2>One company, one engine, a family of products</h2>
         <p>Each product owns its activity and its own personality. What they share is the intelligence layer underneath — and the rule that a recommendation has to be explainable before it ships.</p>
       </div>
+      <h3 class="grp">Golf</h3>
+      <p class="grp-lede">Caddie on the course, SmartBay AI in the simulator, SmartPlay Golf in the browser &mdash; one game, three places to play it.</p>
       <div class="eco">
-
         <article class="card" style="--accent:#6B93FF">
+          <a class="shot" href="https://smartplaycaddie.com" target="_blank" rel="noopener"><img src="/img/caddie.webp" alt="SmartPlay Caddie hole view with front, middle and back yardages and a club call" width="600" height="750" loading="lazy"></a>
           <div class="card-head">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 6.5A7 7 0 1 0 19 12h-7" stroke="#6B93FF" stroke-width="2" stroke-linecap="round"/></svg>
-            <div><h3>SmartPlay Caddie</h3><div class="sub">Intelligent guidance</div></div>
+            <div><h3>SmartPlay Caddie</h3><div class="sub">Your intelligent golf partner</div></div>
             <span class="chip live">Live</span>
           </div>
-          <p>Real-time insight on the course — your bag, your tendencies and the shot in front of you, talked through hands-free, with swing and putting analysis from the phone in your pocket.</p>
+          <p>A voice-first AI caddie on the course &mdash; the club, the target and the miss to favor, spoken while you stand over the ball, plus swing analysis from the phone in your pocket. iPhone and Android.</p>
+          <a class="try" href="https://smartplaycaddie.com" target="_blank" rel="noopener">Get the app &rarr;</a>
         </article>
-
         <article class="card" style="--accent:#4D8BFF">
+          <a class="shot" href="https://smartbayai.com" target="_blank" rel="noopener"><img src="/img/bay.webp" alt="SmartBay AI home screen for simulator facilities" width="600" height="750" loading="lazy"></a>
           <div class="card-head">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3s6 6.6 6 10.5A6 6 0 0 1 6 13.5C6 9.6 12 3 12 3Z" stroke="#4D8BFF" stroke-width="2" stroke-linejoin="round"/></svg>
-            <div><h3>SmartPump</h3><div class="sub">Full-suite fitness &amp; training</div></div>
+            <div><h3>SmartBay AI</h3><div class="sub">An AI instructor in every bay</div></div>
+            <span class="chip">Demo</span>
+          </div>
+          <p>An AI golf lesson for simulator bays. A golfer walks up, picks an instructor and gets a full lesson by voice &mdash; baseline swings, one fix, a drill and a retest &mdash; with no staff in the room.</p>
+          <a class="try" href="https://smartbayai.com" target="_blank" rel="noopener">See SmartBay AI &rarr;</a>
+        </article>
+        <article class="card" style="--accent:#8B5CF6">
+          <a class="shot" href="https://smartplaygolf.com" target="_blank" rel="noopener"><img src="/img/play.webp" alt="SmartPlay Golf game home screen with real holes and challenges" width="600" height="750" loading="lazy"></a>
+          <div class="card-head">
+            <div><h3>SmartPlay Golf</h3><div class="sub">Play the smart play</div></div>
+            <span class="chip live">Live</span>
+          </div>
+          <p>A golf game played in the browser on real holes built from lidar, scored on your decisions as well as your score. Build your own hole around your game.</p>
+          <a class="try" href="https://smartplaygolf.com" target="_blank" rel="noopener">Play free &rarr;</a>
+        </article>
+      </div>
+      <h3 class="grp">Life &amp; performance</h3>
+      <p class="grp-lede">The same intelligence layer, pointed at work, training, movement and reading.</p>
+      <div class="eco">
+        <article class="card" style="--accent:#A78BFA">
+          <a class="shot" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20SmartManage"><img src="/img/manage.webp" alt="SmartManage sign-in screen" width="600" height="750" loading="lazy"></a>
+          <div class="card-head">
+            <div><h3>SmartManage</h3><div class="sub">Life &amp; executive assistant</div></div>
             <span class="chip">Beta</span>
           </div>
-          <p>A full-suite fitness and training app that reads the set you just finished rather than the plan you wrote last month &mdash; load, effort and recovery shaping what comes next.</p>
-          <div class="viz">
-            <svg viewBox="0 0 300 68" role="img" aria-label="Preview: completed sets as bars, with the next set proposed from the last set's effort.">
-              <line x1="0" y1="58" x2="300" y2="58" stroke="#1E254A"/>
-              <rect x="6" y="38" width="26" height="20" fill="#2563FF" opacity=".3"/>
-              <rect x="42" y="30" width="26" height="28" fill="#2563FF" opacity=".45"/>
-              <rect x="78" y="22" width="26" height="36" fill="#2563FF" opacity=".65"/>
-              <rect x="114" y="26" width="26" height="32" fill="#2563FF" opacity=".82"/>
-              <rect x="150" y="34" width="26" height="24" fill="#2563FF"/>
-              <rect x="186" y="16" width="26" height="42" fill="none" stroke="#8B5CF6" stroke-width="1.4" stroke-dasharray="3 3"/>
-              <text x="220" y="25" fill="#8B5CF6" font-family="JetBrains Mono,monospace" font-size="8.5">NEXT SET</text>
-              <text x="220" y="37" fill="#5A6482" font-family="JetBrains Mono,monospace" font-size="8.5">+5 lb</text>
-            </svg>
-            <div class="cap">Preview — proposed, not prescribed</div>
+          <p>An assistant for your whole life, not just your work. Hand Roger reminders and tasks; it keeps the day&rsquo;s brief, what&rsquo;s overdue and what to do next in one place.</p>
+          <a class="try" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20SmartManage">Request beta access &rarr;</a>
+        </article>
+        <article class="card" style="--accent:#4D8BFF">
+          <a class="shot" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20SmartPump"><img src="/img/pump.webp" alt="SmartPump home screen with training stacks and a voice coach" width="600" height="750" loading="lazy"></a>
+          <div class="card-head">
+            <div><h3>SmartPump</h3><div class="sub">Train smarter</div></div>
+            <span class="chip">Beta</span>
           </div>
+          <p>A full-suite fitness and training app with a coach you talk to &mdash; strength, running, cycling and more, with each session shaped by the one before it.</p>
           <a class="try" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20SmartPump">Request beta access &rarr;</a>
         </article>
-
         <article class="card" style="--accent:#6B93FF">
+          <a class="shot" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20SmartMotion"><img src="/img/motion.webp" alt="SmartMotion dashboard with captures and practice points" width="600" height="750" loading="lazy"></a>
           <div class="card-head">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 17c3-6 5-9 8-9s4 6 7 6 3-3 3-3" stroke="#6B93FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <div><h3>SmartMotion</h3><div class="sub">Move smarter. Play better.</div></div>
             <span class="chip">Beta</span>
           </div>
-          <p>Camera-based motion analysis for golf, baseball and soccer &mdash; record a movement, see what it did, then work it with drills the camera scores.</p>
+          <p>Camera-based motion analysis for golf, baseball and soccer &mdash; capture a rep, get one thing to fix, and work it with drills the camera scores.</p>
           <a class="try" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20SmartMotion">Request beta access &rarr;</a>
         </article>
-
-        <article class="card" style="--accent:#4D8BFF">
-          <div class="card-head">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="7" stroke="#4D8BFF" stroke-width="2"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="#4D8BFF" stroke-width="2" stroke-linecap="round"/></svg>
-            <div><h3>SmartFinder</h3><div class="sub">Know the number.</div></div>
-            <span class="chip">Beta</span>
-          </div>
-          <p>A GPS rangefinder that averages a burst of fixes and tells you how sure it is, instead of showing a precise-looking number it can&rsquo;t back up.</p>
-          <a class="try" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20SmartFinder">Request beta access &rarr;</a>
-        </article>
-
         <article class="card" style="--accent:#A78BFA">
+          <a class="shot" href="https://inner-library-snowy.vercel.app" target="_blank" rel="noopener"><img src="/img/library.webp" alt="The Inner Library home screen with fiction genres" width="600" height="750" loading="lazy"></a>
           <div class="card-head">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h11M4 17h7" stroke="#A78BFA" stroke-width="2" stroke-linecap="round"/></svg>
-            <div><h3>SmartManage</h3><div class="sub">The ultimate life &amp; executive assistant</div></div>
-            <span class="chip live">Beta</span>
-          </div>
-          <p>An executive assistant for your whole life, not just your work. Hand Roger reminders and tasks; it keeps the day&rsquo;s brief, what&rsquo;s overdue and what to do next in one place &mdash; plus a newsfeed of only the events you choose to follow.</p>
-          <a class="try" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20SmartManage">Request beta access &rarr;</a>
-        </article>
-
-        <article class="card" style="--accent:#A78BFA">
-          <div class="card-head">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5Z" stroke="#A78BFA" stroke-width="2" stroke-linejoin="round"/><path d="M12 6.5v13" stroke="#A78BFA" stroke-width="2"/></svg>
             <div><h3>The Inner Library</h3><div class="sub">A book built around you</div></div>
             <span class="chip live">Live</span>
           </div>
-          <p>Personal guides, novels, biographies, textbooks, alternate histories and reimagined classics, written one chapter at a time. Researched chapters are cited and fact-checked against their sources, and anything it couldn&rsquo;t verify is flagged. Free, no account &mdash; your books stay in your own browser.</p>
-          <div class="viz">
-            <svg viewBox="0 0 300 68" role="img" aria-label="Preview: a chapter with a numbered citation, and a fact-check note flagging one date the research did not support.">
-              <line x1="6" y1="12" x2="170" y2="12" stroke="#2A3358" stroke-width="4" stroke-linecap="round"/>
-              <line x1="6" y1="24" x2="150" y2="24" stroke="#2A3358" stroke-width="4" stroke-linecap="round"/>
-              <text x="156" y="27" fill="#A78BFA" font-family="JetBrains Mono,monospace" font-size="8.5">[3]</text>
-              <line x1="6" y1="36" x2="164" y2="36" stroke="#2A3358" stroke-width="4" stroke-linecap="round"/>
-              <line x1="6" y1="48" x2="118" y2="48" stroke="#2A3358" stroke-width="4" stroke-linecap="round"/>
-              <rect x="190" y="8" width="104" height="44" fill="none" stroke="#A78BFA" stroke-dasharray="3 3"/>
-              <text x="199" y="23" fill="#A78BFA" font-family="JetBrains Mono,monospace" font-size="8.5">FACT CHECK</text>
-              <text x="199" y="36" fill="#8891A8" font-family="JetBrains Mono,monospace" font-size="8.5">1 date not in</text>
-              <text x="199" y="47" fill="#8891A8" font-family="JetBrains Mono,monospace" font-size="8.5">its sources</text>
-            </svg>
-            <div class="cap">Preview &mdash; cited, and flagged where unsupported</div>
-          </div>
+          <p>Personal guides, novels, biographies and textbooks written one chapter at a time. Researched chapters are cited and fact-checked, and anything it couldn&rsquo;t verify is flagged. Free, no account.</p>
           <a class="try" href="https://inner-library-snowy.vercel.app" target="_blank" rel="noopener">Try it free &rarr;</a>
         </article>
-
-        <article class="card" style="--accent:#2563FF">
-          <div class="card-head">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 11l9-7 9 7" stroke="#2563FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10v9h12v-9" stroke="#2563FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><h3>SmartPlay DIY</h3><div class="sub">Know what to do. Get it done.</div></div>
-            <span class="chip">Beta</span>
-          </div>
-          <p>Home and auto, for the capable non-expert. It keeps the record of what you actually own, gives one safe next step at a time, and stops you before the step that can hurt you. It does not book anyone, price anyone or vouch for anyone &mdash; when the answer is &ldquo;call a professional,&rdquo; that is a finished answer.</p>
-          <div class="viz">
-            <svg viewBox="0 0 300 68" role="img" aria-label="Preview: asked when the house was built, answered not sure, and the safety gate resolves the unknown to pre-1980.">
-              <rect x="4" y="4" width="292" height="60" fill="none" stroke="#1E254A"/>
-              <text x="14" y="21" fill="#8891A8" font-family="JetBrains Mono,monospace" font-size="8.5">ASKED</text>
-              <text x="14" y="34" fill="#FAFAFC" font-family="JetBrains Mono,monospace" font-size="9">Built before 1980?</text>
-              <text x="14" y="52" fill="#8891A8" font-family="JetBrains Mono,monospace" font-size="8.5">ANSWERED &ldquo;not sure&rdquo;</text>
-              <path d="M150 34h22" stroke="#2563FF" stroke-width="1.4"/>
-              <path d="M168 30l5 4-5 4" fill="none" stroke="#2563FF" stroke-width="1.4"/>
-              <rect x="182" y="16" width="104" height="36" fill="none" stroke="#2563FF" stroke-dasharray="3 3"/>
-              <text x="192" y="31" fill="#2563FF" font-family="JetBrains Mono,monospace" font-size="8.5">TREATED AS PRE-1980</text>
-              <text x="192" y="44" fill="#8891A8" font-family="JetBrains Mono,monospace" font-size="8.5">asbestos &middot; lead</text>
-            </svg>
-            <div class="cap">Preview &mdash; unknown fails safe, not convenient</div>
-          </div>
-          <a class="try" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20SmartPlay%20DIY">Request beta access &rarr;</a>
-        </article>
-
+      </div>
+      <h3 class="grp">In the lab</h3>
+      <p class="grp-lede">Working prototypes. Ask if you want a look.</p>
+      <div class="eco lab">
         <article class="card" style="--accent:#8B5CF6">
+          <a class="shot" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20Rondo"><img src="/img/rondo.webp" alt="Rondo home screen for coaches and players" width="600" height="750" loading="lazy"></a>
           <div class="card-head">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="#8B5CF6" stroke-width="2"/></svg>
             <div><h3>Rondo</h3><div class="sub">Play soccer smarter</div></div>
-            <span class="chip">Beta</span>
+            <span class="chip">Prototype</span>
           </div>
-          <p>Coaching logistics for soccer &mdash; the organizing behind a team and its training, kept in one place so the coach can spend the session coaching.</p>
-          <a class="try" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20Rondo">Request beta access &rarr;</a>
+          <p>Coaching for youth soccer: a five-second touchline note lands on that player&rsquo;s phone as next week&rsquo;s work.</p>
+          <a class="try" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20Rondo">Ask about Rondo &rarr;</a>
         </article>
-
         <article class="card" style="--accent:#6B93FF">
+          <a class="shot" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20PlaySmart"><img src="/img/playsmart.webp" alt="PlaySmart kids app greeting screen" width="600" height="750" loading="lazy"></a>
           <div class="card-head">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6.5 18 12l-9 5.5V6.5Z" stroke="#6B93FF" stroke-width="2" stroke-linejoin="round"/></svg>
             <div><h3>PlaySmart</h3><div class="sub">Play. Learn. Grow.</div></div>
-            <span class="chip">Beta</span>
+            <span class="chip">Prototype</span>
           </div>
-          <p>Recreation and lifestyle intelligence — the same engine pointed at how people spend their free time, and what would make it better.</p>
-          <a class="try" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20PlaySmart">Request beta access &rarr;</a>
+          <p>A learning companion for kids &mdash; the same engine, pointed at curiosity.</p>
+          <a class="try" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20PlaySmart">Ask about PlaySmart &rarr;</a>
         </article>
-
       </div>
 
       <div class="foundation">
@@ -437,7 +402,8 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
             <li>Course-aware distance and targeting from real course geometry.</li>
             <li>Cross-platform beta distribution with real testers and a written handbook.</li>
             <li>A professional instructor using the product inside paid lessons.</li>
-            <li>Seven products open to beta testers: SmartPump, SmartMotion, SmartFinder, SmartManage, SmartPlay DIY, Rondo and PlaySmart.</li>
+            <li>SmartBay AI running AI golf lessons in a real simulator bay, and SmartPlay Golf playable free in the browser.</li>
+            <li>SmartManage, SmartPump and SmartMotion open to beta testers; Rondo and PlaySmart running as prototypes.</li>
             <li>The Inner Library: personalized books written chapter by chapter, with researched chapters cited and fact-checked against their sources.</li>
           </ul>
         </div>
