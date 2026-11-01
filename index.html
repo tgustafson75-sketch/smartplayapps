@@ -269,6 +269,19 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
   .wave path{animation:drift 14s ease-in-out infinite alternate}
   @keyframes drift{to{transform:translateY(-6px)}}
 }
+
+/* click-to-play YouTube (loads YouTube only on click) */
+.yt{position:relative;max-width:920px;margin:28px 0 36px;aspect-ratio:16/9;border-radius:22px;overflow:hidden;background:var(--surface);box-shadow:0 24px 70px rgba(0,0,0,.5),0 0 0 1px var(--rule)}
+.yt-btn{all:unset;cursor:pointer;display:block;width:100%;height:100%;position:relative}
+.yt-btn img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.yt-btn:hover img{transform:scale(1.02)}
+.yt-btn:focus-visible{outline:3px solid var(--cobalt);outline-offset:-3px}
+.yt-play{position:absolute;left:69%;top:76%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:var(--cobalt);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .2s ease}
+.yt-play svg{margin-left:4px}
+.yt-btn:hover .yt-play{transform:scale(1.07)}
+.yt-len{position:absolute;left:16px;top:14px;background:rgba(10,15,31,.85);color:#fff;font-size:13px;font-weight:500;padding:5px 10px;border-radius:8px}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+@media (max-width:720px){.yt-play{width:50px;height:50px;margin:-25px 0 0 -25px}.yt-play svg{width:22px;height:22px}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -333,6 +346,13 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
       </div>
       <h3 class="grp">Golf</h3>
       <p class="grp-lede">Caddie on the course, SmartBay AI in the simulator, SmartPlay Golf in the browser &mdash; one game, three places to play it.</p>
+      <div class="yt" id="caddie-video" data-id="phRi4HL9-ow">
+        <button type="button" class="yt-btn" aria-label="Play video: Welcome to SmartPlay Caddie (1 minute 11 seconds)">
+          <img src="/img/caddie-video-poster.webp" width="1280" height="720" loading="lazy" alt="A drive with a fire-streak ball trace and the words Full Swing Ahead">
+          <span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+          <span class="yt-len" aria-hidden="true">Watch SmartPlay Caddie &middot; 1:11</span>
+        </button>
+      </div>
       <div class="eco">
         <article class="card" style="--accent:#6B93FF">
           <a class="shot" href="https://smartplaycaddie.com" target="_blank" rel="noopener"><img src="/img/caddie.webp" alt="SmartPlay Caddie hole view with front, middle and back yardages and a club call" width="600" height="750" loading="lazy"></a>
@@ -342,6 +362,7 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
           </div>
           <p>A voice-first AI caddie on the course &mdash; the club, the target and the miss to favor, spoken while you stand over the ball, plus swing analysis from the phone in your pocket. iPhone and Android.</p>
           <a class="try" href="https://smartplaycaddie.com" target="_blank" rel="noopener">Get the app &rarr;</a>
+          <a class="try" href="#caddie-video">Watch the 70-second tour &rarr;</a>
         </article>
         <article class="card" style="--accent:#4D8BFF">
           <a class="shot" href="https://smartbayai.com" target="_blank" rel="noopener"><img src="/img/bay.webp" alt="SmartBay AI home screen for simulator facilities" width="600" height="750" loading="lazy"></a>
@@ -571,3 +592,14 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
     </div>
   </div>
 </footer>
+<script>
+document.querySelectorAll('.yt').forEach(function(el){
+  el.querySelector('.yt-btn').addEventListener('click',function(){
+    var f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+el.dataset.id+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+    f.title='Welcome to SmartPlay Caddie';
+    f.allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+    f.allowFullscreen=true; el.replaceChildren(f);
+  });
+});
+</script>
