@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Investors — SmartPlay AI</title>
+<meta name="description" content="SmartPlay AI investor and strategic partner overview: the golf triad (SmartPlay Caddie, SmartBay AI, SmartPlay Golf), the intelligence engine underneath, and what is live today.">
+<meta name="theme-color" content="#0A0F1F">
+<link rel="canonical" href="https://www.smartplayapps.com/investors">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SmartPlay AI">
+<meta property="og:title" content="SmartPlay AI — Investors & Strategic Partners">
+<meta property="og:description" content="Golf first: a live AI caddie, an AI instructor for simulator bays, and a browser golf game — on one intelligence engine.">
+<meta property="og:url" content="https://www.smartplayapps.com/investors">
+<meta property="og:image" content="https://www.smartplayapps.com/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* SmartPlay AI investor deck. One page that reads as a site on screen and
+   prints as a 16:9 deck (13.333in x 7.5in, one slide per page). Same tokens
+   as index.html. Every figure on this page is either sourced on the Sources
+   slide or is a fact about our own shipped product. */
+:root{
+  --navy:#0A0F1F;--indigo:#1A1F4D;--surface:#0D1327;--surface-2:#111838;
+  --rule:#1E254A;--rule-soft:#161C39;--cobalt:#2563FF;--cobalt-hi:#6B93FF;
+  --violet:#8B5CF6;--violet-hi:#A78BFA;--silver:#D1D5DB;--silver-dim:#8891A8;
+  --off:#FAFAFC;--pad:clamp(1.25rem,5vw,2.5rem);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--navy);color:var(--off);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:Sora,Inter,system-ui,sans-serif;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:var(--pad)}
+.wordmark{font-family:Sora;font-weight:200;letter-spacing:.22em;white-space:nowrap;font-size:1.05rem}
+.wordmark b{font-weight:200;color:var(--cobalt)}
+.masthead{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.4rem}
+.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.brand svg{width:30px;height:30px;flex:none}
+.nav{display:flex;gap:1.4rem;align-items:center;font-size:.9rem;color:var(--silver)}
+.nav a{text-decoration:none}
+.nav a:hover,.nav a:focus-visible{color:var(--cobalt-hi)}
+.nav .home{display:none}
+.pdfl{display:none}@media(min-width:500px){.pdfl{display:inline}}
+.masthead .wordmark{font-size:.92rem}
+@media(min-width:700px){.nav .home{display:inline}}
+.btn{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;padding:.62rem 1.2rem;border-radius:100px;font-size:.88rem;font-weight:500;white-space:nowrap}
+.btn.primary{background:var(--cobalt);color:#fff}
+.btn.primary:hover,.btn.primary:focus-visible{background:#1D53E0}
+.btn.ghost{border:1px solid var(--rule);color:var(--off)}
+.btn.ghost:hover,.btn.ghost:focus-visible{border-color:var(--cobalt)}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+
+.eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver-dim);display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--cobalt);flex:none}
+.num{margin-left:auto;color:#5A6482}
+
+/* slides */
+.deck{display:flex;flex-direction:column;gap:1.25rem;padding-bottom:3rem}
+.slide{position:relative;background:var(--surface);border:1px solid var(--rule-soft);border-radius:12px;padding:clamp(1.4rem,4vw,3rem);display:flex;flex-direction:column;gap:1.4rem;overflow:hidden}
+@media(min-width:1000px){.slide{aspect-ratio:16/9}}
+.slide h2{font-weight:600;font-size:clamp(1.45rem,3.2vw,2.3rem);letter-spacing:-.02em;line-height:1.15;max-width:28ch}
+.slide .sub{color:var(--silver);font-size:clamp(.98rem,1.6vw,1.1rem);max-width:62ch}
+.body{flex:1;display:grid;gap:1.1rem;align-content:start}
+.g2{grid-template-columns:1fr}.g3{grid-template-columns:1fr}
+@media(min-width:760px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+.box{background:var(--navy);border:1px solid var(--rule-soft);border-radius:8px;padding:1.1rem 1.2rem;display:flex;flex-direction:column;gap:.4rem}
+.box h3{font-size:1rem;font-weight:600}
+.box p,.box li{color:var(--silver-dim);font-size:.9rem;line-height:1.5}
+.box ul{margin:.2rem 0 0;padding-left:1.1rem}
+.tag{align-self:flex-start;font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.18rem .5rem;border-radius:3px;border:1px solid var(--rule);color:var(--silver-dim)}
+.tag.live{border-color:var(--cobalt-hi);color:var(--cobalt-hi)}
+.tag.next{border-color:var(--violet-hi);color:var(--violet-hi)}
+.stat{font-family:Sora;font-weight:600;font-size:clamp(2rem,4.4vw,3.2rem);letter-spacing:-.03em;line-height:1;color:var(--off)}
+.stat small{font-size:.45em;font-weight:400;color:var(--silver-dim);letter-spacing:0}
+.foot{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.08em;color:#5A6482}
+.ledger{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.6rem}
+.ledger li{display:flex;gap:.8rem;font-size:.93rem;color:var(--silver);line-height:1.45}
+.ledger li::before{content:"";width:6px;height:6px;margin-top:.5rem;flex:none;border-radius:50%;background:var(--cobalt)}
+.ledger.later li{color:var(--silver-dim)}
+.ledger.later li::before{background:none;border:1px solid var(--violet-hi)}
+.col-title{font-family:Sora;font-weight:600;font-size:.95rem;margin-bottom:.8rem}
+.col-title.now{color:var(--cobalt-hi)}.col-title.later{color:var(--violet-hi)}
+
+/* triad with real screenshots */
+.triad{display:grid;gap:1rem;grid-template-columns:1fr}
+@media(min-width:760px){.triad{grid-template-columns:repeat(3,1fr)}}
+.prod{display:grid;grid-template-columns:88px 1fr;gap:1rem;align-items:start;background:var(--navy);border:1px solid var(--rule-soft);border-radius:8px;padding:.9rem}
+.prod img{width:88px;height:110px;object-fit:cover;object-position:top;border-radius:6px;border:1px solid var(--rule-soft);display:block}
+.prod h3{font-size:1rem;font-weight:600;margin-bottom:.15rem}
+.prod p{color:var(--silver-dim);font-size:.86rem;line-height:1.45;margin-top:.35rem}
+
+/* engine table */
+.engine{border:1px solid var(--rule-soft);border-radius:8px;overflow:hidden}
+.row{display:grid;gap:.2rem 1.6rem;padding:.75rem 1.1rem;border-top:1px solid var(--rule-soft);background:var(--navy)}
+.row:first-child{border-top:0}
+@media(min-width:760px){.row{grid-template-columns:2.4rem 11rem 1fr;align-items:baseline}}
+.row .n{font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--cobalt-hi)}
+.row h3{font-size:.93rem;font-weight:600}
+.row p{color:var(--silver-dim);font-size:.88rem;line-height:1.45}
+
+/* cover */
+.cover{justify-content:space-between;background:radial-gradient(120% 90% at 100% 0%,#1A1F4D 0%,#0D1327 55%)}
+.cover h1{font-weight:600;text-transform:uppercase;font-size:clamp(2.2rem,6.4vw,4.6rem);line-height:1.02;letter-spacing:-.015em}
+.cover h1 .b{color:var(--cobalt)}
+.cover .mark{position:absolute;right:clamp(1rem,5vw,4rem);top:50%;transform:translateY(-50%);width:clamp(120px,22vw,260px);opacity:.95;display:none}
+@media(min-width:760px){.cover .mark{display:block}}
+.ask-lines{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:.4rem}
+.srcs{margin:0;padding-left:1.1rem;color:var(--silver-dim);font-size:.82rem;line-height:1.55}
+.srcs a{color:var(--silver);text-underline-offset:3px}
+
+footer{border-top:1px solid var(--rule-soft);padding-block:2.4rem;color:var(--silver-dim);font-size:.86rem}
+footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--rule)}
+
+/* print: one slide per 16:9 page */
+@page{size:13.333in 7.5in;margin:0}
+@media print{
+  html,body{background:var(--navy);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .masthead,.intro,footer,.noprint{display:none!important}
+  .wrap{max-width:none;padding:0}
+  .deck{gap:0;padding:0}
+  html{font-size:21px}
+  .slide{width:13.333in;height:7.5in;aspect-ratio:auto;border:0;border-radius:0;padding:.55in .7in;gap:22px;break-after:page;page-break-after:always}
+  .slide:last-child{break-after:auto;page-break-after:auto}
+  .slide h2{font-size:44px;max-width:30ch}.cover h1{font-size:96px}
+  .slide .sub{font-size:22px;max-width:70ch}
+  .box p,.box li,.ledger li{font-size:17px}
+  .box h3,.row h3,.prod h3{font-size:21px}
+  .stat{font-size:72px}
+  .eyebrow{font-size:13px}.foot{font-size:12px}
+  .prod{grid-template-columns:150px 1fr}.prod img{width:150px;height:188px}
+  .row{grid-template-columns:2.4rem 13rem 1fr;padding:12px 18px}
+  .srcs{font-size:17px}
+  .cover .mark{width:260px;right:.7in}
+  .cover .sub{max-width:44ch}
+  .body{gap:14px}.box{padding:14px 18px;gap:6px}
+  .row{padding:9px 18px}.row p{font-size:16.5px}
+  .prod{grid-template-columns:120px 1fr;gap:14px}.prod img{width:120px;height:150px}.prod p{font-size:16.5px}
+  .g2{grid-template-columns:1fr 1fr}.g3,.triad{grid-template-columns:repeat(3,1fr)}
+  .row{grid-template-columns:2.4rem 11rem 1fr;align-items:baseline}
+  .cover .mark{display:block}
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="spg" x1="14" y1="10" x2="50" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#2563FF"/><stop offset="1" stop-color="#8B5CF6"/>
+  </linearGradient>
+</defs></svg>
+
+<div class="wrap masthead">
+  <a class="brand" href="/">
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M46 18H28a8 8 0 0 0 0 16h8a8 8 0 0 1 0 16H18" fill="none" stroke="url(#spg)" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="46" cy="18" r="4.6" fill="#0A0F1F" stroke="url(#spg)" stroke-width="3.2"/>
+      <circle cx="18" cy="50" r="4.6" fill="#0A0F1F" stroke="url(#spg)" stroke-width="3.2"/>
+    </svg>
+    <span class="wordmark">SMARTPLAY <b>AI</b></span>
+  </a>
+  <nav class="nav">
+    <a class="home" href="/">Home</a>
+    <a class="btn primary" href="/SmartPlay-AI-Investor-Deck.pdf" download>Deck <span class="pdfl">(PDF)</span></a>
+  </nav>
+</div>
+
+<main class="wrap">
+  <p class="intro" style="color:var(--silver-dim);font-size:.92rem;margin:0 0 1.2rem">Investor &amp; strategic partner overview · November 2026 · <a href="mailto:tim@smartplaycaddie.com?subject=SmartPlay%20AI%20%E2%80%94%20investor%20inquiry">tim@smartplaycaddie.com</a></p>
+
+  <div class="deck">
+
+  <!-- 1 cover -->
+  <section class="slide cover" aria-label="Cover">
+    <div class="eyebrow">Investors &amp; strategic partners<span class="num">01</span></div>
+    <div>
+      <h1>Intelligence<br>made <span class="b">useful.</span></h1>
+      <p class="sub" style="margin-top:1.1rem">SmartPlay AI builds AI that makes the next decision clearer. We start in golf: a live AI caddie, an AI instructor for simulator bays, and a golf game in the browser. All three run on one intelligence engine.</p>
+    </div>
+    <p class="foot">SMARTPLAY AI LLC · MENIFEE, CALIFORNIA · SMARTPLAYAPPS.COM · NOVEMBER 2026</p>
+    <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M46 18H28a8 8 0 0 0 0 16h8a8 8 0 0 1 0 16H18" fill="none" stroke="url(#spg)" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="46" cy="18" r="4.6" fill="#0D1327" stroke="url(#spg)" stroke-width="3.2"/>
+      <circle cx="18" cy="50" r="4.6" fill="#0D1327" stroke="url(#spg)" stroke-width="3.2"/>
+    </svg>
+  </section>
+
+  <!-- 2 problem -->
+  <section class="slide" aria-label="The problem">
+    <div class="eyebrow">The problem<span class="num">02</span></div>
+    <h2>Golfers get numbers. What they need is the decision.</h2>
+    <div class="body g3">
+      <div class="box"><h3>On the course</h3><p>Golf apps give yardages and charts. The golfer still has to work out the club, the target and the miss to favor while standing over the ball.</p></div>
+      <div class="box"><h3>In practice</h3><p>Real coaching is scarce and costs money, so most practice happens with no feedback at all, and the same faults get repeated.</p></div>
+      <div class="box"><h3>In the simulator</h3><p>Simulator golf is growing fast. A bay produces data on every shot, but turning that data into a lesson still needs a person in the room.</p></div>
+    </div>
+    <p class="sub">Most AI products answer with confidence even when they are guessing. In a sport where trust decides whether advice gets followed, that is a product defect.</p>
+  </section>
+
+  <!-- 3 triad -->
+  <section class="slide" aria-label="What we built">
+    <div class="eyebrow">What we built<span class="num">03</span></div>
+    <h2>The golf triad: one game, three places to play it</h2>
+    <div class="triad">
+      <div class="prod"><img src="/img/caddie.webp" alt="SmartPlay Caddie hole view" width="88" height="110"><div><span class="tag live">Live · iOS + Android</span><h3 style="margin-top:.45rem">SmartPlay Caddie</h3><p>A voice-first AI caddie on the course. It calls the club, the target and the miss, and analyzes your swing from your phone.</p></div></div>
+      <div class="prod"><img src="/img/bay.webp" alt="SmartBay AI home screen" width="88" height="110"><div><span class="tag">Demo · in a real bay</span><h3 style="margin-top:.45rem">SmartBay AI</h3><p>An AI instructor for simulator bays. It gives a full lesson by voice, with no staff in the room: baseline swings, one fix, a drill, then a retest.</p></div></div>
+      <div class="prod"><img src="/img/play.webp" alt="SmartPlay Golf home screen" width="88" height="110"><div><span class="tag live">Live · browser</span><h3 style="margin-top:.45rem">SmartPlay Golf</h3><p>A golf game on real holes built from lidar, scored on your decisions as well as your strokes.</p></div></div>
+    </div>
+    <p class="sub">On the course, in the bay and at home, the player and the caddie are the same, and so is the data. The plan is to bring all three under one Pro subscription.</p>
+  </section>
+
+  <!-- 4 caddie -->
+  <section class="slide" aria-label="Flagship: SmartPlay Caddie">
+    <div class="eyebrow">Flagship<span class="num">04</span></div>
+    <h2>SmartPlay Caddie: your intelligent golf partner</h2>
+    <div class="body g2">
+      <ul class="ledger">
+        <li>Live on the App Store and Google Play since September 2026.</li>
+        <li>A voice-first companion you talk to on the course. Two caddies ship, Kevin and Serena, and players can also build their own.</li>
+        <li>Swing analysis from the phone camera, with a skeletal overlay and comparison against a reference swing.</li>
+        <li>Distances and targeting from real course geometry, plus acoustic strike detection in a practice cage.</li>
+        <li>Works with Apple Watch and Wear OS, and takes in data from tablets, GoPro and simulator bays.</li>
+      </ul>
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div class="box"><h3>No extra hardware</h3><p>No club sensors and no tags. It runs on the phone the golfer already owns.</p></div>
+        <div class="box"><h3>Intelligence that compounds</h3><p>It learns from every round and session, so the player is not getting a one-time read from a single swing.</p></div>
+        <div class="box"><h3>Pricing</h3><p>Free tier: GPS yardages, scorecard and round history. SmartPlay Full: $9.99 a month or $79 a year, with a free trial in the store.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 market -->
+  <section class="slide" aria-label="Market">
+    <div class="eyebrow">Market<span class="num">05</span></div>
+    <h2>Golf is growing, and simulators are growing faster</h2>
+    <div class="body g3">
+      <div class="box"><div class="stat">48.1M</div><p>Total US golf participants in 2025, a record. Includes golf on and off the course.</p></div>
+      <div class="box"><div class="stat">29M<small>+</small></div><p>Americans who played on a golf course in 2025. These are Caddie's core users.</p></div>
+      <div class="box"><div class="stat">8.1M</div><p>US simulator golfers in 2024, up from 3.8M in 2015. These are SmartBay AI's users.</p></div>
+    </div>
+    <div class="body g2">
+      <div class="box"><h3>Facility opportunity</h3><p>6.5% of US golf facilities have installed simulators, and 13% plan to add them within one to two years. Every new bay is a place a SmartBay AI lesson can run.</p></div>
+      <div class="box"><h3>Expansion with the same engine</h3><p>The engine is already in beta outside golf: SmartManage (a life and executive assistant), SmartPump (fitness training) and SmartMotion (camera motion analysis).</p></div>
+    </div>
+    <p class="foot">SOURCES: NATIONAL GOLF FOUNDATION. SEE SLIDE 13.</p>
+  </section>
+
+  <!-- 6 engine -->
+  <section class="slide" aria-label="The engine">
+    <div class="eyebrow">Smart Intelligence Engine<span class="num">06</span></div>
+    <h2>Five reusable capabilities, each already running in Caddie</h2>
+    <div class="engine">
+      <div class="row"><div class="n">01</div><h3>User Model</h3><p>Player profiles and roster, swing and round history, coach notes with attribution, and tendencies tracked across sessions.</p></div>
+      <div class="row"><div class="n">02</div><h3>Context Engine</h3><p>A GPS pipeline that rejects outlier fixes, uses authoritative course geometry and satellite imagery, and always respects a manual override.</p></div>
+      <div class="row"><div class="n">03</div><h3>Decision Engine</h3><p>A tiered reasoning cascade. A local pre-classifier runs first, then a fast router, then a heavier model for substantive judgment.</p></div>
+      <div class="row"><div class="n">04</div><h3>Learning Engine</h3><p>Swing capture that builds a labeled dataset, tendencies mapped to drills, and outcomes captured as part of the product rather than as telemetry.</p></div>
+      <div class="row"><div class="n">05</div><h3>Interaction Engine</h3><p>Press-to-talk voice, camera swing analysis and acoustic strike detection.</p></div>
+    </div>
+    <p class="sub">Any new product gets these on day one, so the cost of building it is mostly the experience layer on top.</p>
+  </section>
+
+  <!-- 7 evidence -->
+  <section class="slide" aria-label="Evidence">
+    <div class="eyebrow">Evidence<span class="num">07</span></div>
+    <h2>What is shipped, and what is planned</h2>
+    <div class="body g2">
+      <div><div class="col-title now">Working now</div>
+        <ul class="ledger">
+          <li>SmartPlay Caddie is live and for sale on both app stores.</li>
+          <li>A professional instructor uses Caddie inside paid lessons.</li>
+          <li>SmartBay AI has run AI golf lessons in a real simulator bay at an indoor facility.</li>
+          <li>SmartPlay Golf is playable free in the browser on lidar-built holes.</li>
+          <li>SmartManage, SmartPump and SmartMotion are open to beta testers. The Inner Library is live.</li>
+        </ul>
+      </div>
+      <div><div class="col-title later">Roadmap</div>
+        <ul class="ledger later">
+          <li>SmartBay AI pilots with indoor golf facilities.</li>
+          <li>Multiplayer rounds.</li>
+          <li>Illustrated, lip-synced caddie avatars.</li>
+          <li>Smart-glasses and multi-sensor perception.</li>
+          <li>An auto-compiled video highlights engine.</li>
+          <li>Localization, starting with Japanese.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 business model -->
+  <section class="slide" aria-label="Business model">
+    <div class="eyebrow">Business model<span class="num">08</span></div>
+    <h2>Consumer subscriptions first, then facilities</h2>
+    <div class="body g3">
+      <div class="box"><span class="tag live">Live</span><h3>Consumer subscription</h3><p>SmartPlay Full costs $9.99 a month or $79 a year, with a free GPS and scorecard tier. There are no ads.</p></div>
+      <div class="box"><span class="tag next">Next</span><h3>Facility licensing</h3><p>SmartBay AI is sold to simulator facilities. The setup is one camera and one screen, so a bay earns lesson revenue without an instructor present.</p></div>
+      <div class="box"><span class="tag next">Next</span><h3>One Pro plan across golf</h3><p>Caddie, SmartBay AI and SmartPlay Golf under one subscription, which raises the value of each subscriber.</p></div>
+    </div>
+    <div class="body g2">
+      <div class="box"><h3>Instructor channel</h3><p>A working golf instructor uses the product in paid lessons. Instructors are a trusted way to reach golfers.</p></div>
+      <div class="box"><h3>Capital-efficient by design</h3><p>One engine supports every product. One founder has shipped a live app on both stores, plus several web products, using AI as leverage.</p></div>
+    </div>
+  </section>
+
+  <!-- 9 why we win -->
+  <section class="slide" aria-label="Why we win">
+    <div class="eyebrow">Why we win<span class="num">09</span></div>
+    <h2>Built to be trusted on the shot that matters</h2>
+    <div class="body g3">
+      <div class="box"><h3>No hardware</h3><p>There is nothing to buy, charge or screw into a grip, so a new player can start for free.</p></div>
+      <div class="box"><h3>Decision, not data</h3><p>One clear next action, with the reason behind it, instead of another dashboard.</p></div>
+      <div class="box"><h3>Honest degradation</h3><p>When the system cannot know something, it says so rather than guessing with confidence.</p></div>
+      <div class="box"><h3>The human overrides the sensor</h3><p>Every automatic detection has a manual override, and the system accepts it without argument.</p></div>
+      <div class="box"><h3>Course to bay to couch</h3><p>Point solutions cover one place. We cover all three with the same player and the same caddie.</p></div>
+      <div class="box"><h3>Compounding data</h3><p>Every round, bay session and game adds to one user model, which makes the advice better over time.</p></div>
+    </div>
+  </section>
+
+  <!-- 10 roadmap -->
+  <section class="slide" aria-label="Roadmap">
+    <div class="eyebrow">Roadmap<span class="num">10</span></div>
+    <h2>Deepen golf first, then extend the engine</h2>
+    <div class="body g3">
+      <div class="box"><span class="tag live">Now</span><h3>Golf triad</h3><ul><li>Caddie live on both stores</li><li>SmartBay AI demo in a real bay</li><li>SmartPlay Golf live in the browser</li></ul></div>
+      <div class="box"><span class="tag next">Next 6–12 months</span><h3>Scale golf</h3><ul><li>SmartBay AI facility pilots</li><li>One Pro subscription across golf</li><li>Multiplayer rounds</li><li>Lip-synced caddie avatars</li><li>Japanese localization</li></ul></div>
+      <div class="box"><span class="tag">12–24 months</span><h3>Platform</h3><ul><li>Smart glasses and multi-sensor perception</li><li>Auto-compiled video highlights</li><li>Fitness, motion and assistant products on the same engine</li></ul></div>
+    </div>
+  </section>
+
+  <!-- 11 founder -->
+  <section class="slide" aria-label="Founder">
+    <div class="eyebrow">Founder<span class="num">11</span></div>
+    <h2>Built by an operator, not a lab</h2>
+    <div class="body g2">
+      <div class="box"><h3>Tim Gustafson, founder</h3><p>Ten years in uniform: four in the Marine Corps as a military policeman, then six in the Army as a medic and radiology technologist. That was followed by 26 years in healthcare operations, including COO leadership in radiology and imaging. He is a PGA HOPE alum.</p></div>
+      <div class="box"><h3>Why that matters</h3><p>The products are aimed at the moment a decision gets made under pressure, with incomplete information, by someone who will own the outcome. That describes most of the founder's working life.</p><p style="margin-top:.4rem">Tim came to software from operations and taught himself to build with AI. He took Caddie from idea to a live, paid app on both stores.</p></div>
+    </div>
+  </section>
+
+  <!-- 12 ask -->
+  <section class="slide" aria-label="The ask">
+    <div class="eyebrow">The ask<span class="num">12</span></div>
+    <h2>Who we want to talk to</h2>
+    <div class="body g3">
+      <div class="box"><h3>Investors</h3><p>Fund the move from a live product to scale: SmartBay AI facility pilots, user acquisition for Caddie, avatar work and smart glasses. We share raise size and terms in conversation.</p></div>
+      <div class="box"><h3>Golf facilities &amp; instructors</h3><p>Indoor golf venues, simulator operators and teaching pros who want an AI lesson running in their bays or alongside their own coaching.</p></div>
+      <div class="box"><h3>Technology partners</h3><p>Simulator and launch monitor makers, wearable and smart-glasses platforms, and course data providers who want to build on the same stack.</p></div>
+    </div>
+    <div class="ask-lines noprint-inline">
+      <a class="btn primary" href="mailto:tim@smartplaycaddie.com?subject=SmartPlay%20AI%20%E2%80%94%20investor%20inquiry">tim@smartplaycaddie.com</a>
+      <a class="btn ghost" href="https://smartplaycaddie.com">Try Caddie</a>
+      <a class="btn ghost" href="https://smartbayai.com">See SmartBay AI</a>
+    </div>
+  </section>
+
+  <!-- 13 sources -->
+  <section class="slide" aria-label="Sources">
+    <div class="eyebrow">Sources<span class="num">13</span></div>
+    <h2>Sources and notes</h2>
+    <ol class="srcs">
+      <li>US golf participation for 2025: 48.1M total participants, and more than 29M on-course golfers. National Golf Foundation, 2026 Graffis Report, as reported by <a href="https://clubandresortbusiness.com/ngfs-graffis-report-shows-golf-participation-surpassed-29m-for-eighth-consecutive-year-of-growth/">Club + Resort Business</a>.</li>
+      <li>Simulator golf: 8.1M simulator users in 2024 (3.8M in 2015). 6.5% of US golf facilities have simulators and 13% plan to add them within one to two years. National Golf Foundation, <a href="https://ngf.org/wp-content/uploads/2025/04/2025-NGF-White-Paper-The-Golf-Simulator-Opportunity.pdf">The Golf Simulator Opportunity</a> (2025).</li>
+      <li>Product status, pricing and capabilities are as of November 2026. "Live" means publicly available today, "Beta" means open to testers, and "Demo" means working and shown on request.</li>
+    </ol>
+    <p class="foot" style="margin-top:auto">© 2026 SMARTPLAY AI LLC · INTELLIGENCE MADE USEFUL</p>
+  </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between">
+    <div><span class="wordmark" style="font-size:.9rem">SMARTPLAY <b>AI</b> LLC</span><div style="margin-top:.5rem">Menifee, California · <a href="mailto:tim@smartplaycaddie.com">tim@smartplaycaddie.com</a></div></div>
+    <div><a href="/">smartplayapps.com</a> · <a href="/SmartPlay-AI-Investor-Deck.pdf" download>Download deck (PDF)</a></div>
+  </div>
+</footer>
+</html>
