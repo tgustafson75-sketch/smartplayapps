@@ -1,0 +1,18 @@
+{
+  "name": "smartplayapps-web",
+  "version": "1.0.0",
+  "description": "SmartPlay AI website with Vercel Web Analytics",
+  "private": true,
+  "scripts": {
+    "info": "echo 'This is a static HTML website. The Vercel Analytics integration uses script tags directly in HTML files.'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "analytics",
+    "vercel",
+    "web-analytics"
+  ]
+}
