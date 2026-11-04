@@ -232,6 +232,16 @@ section{padding-block:clamp(3.2rem,8vw,5.5rem);border-top:1px solid var(--rule-s
 .grp{font-family:Sora;font-weight:600;font-size:1.1rem;margin:2.4rem 0 .3rem;color:var(--off)}
 .grp:first-of-type{margin-top:0}
 .grp-lede{color:var(--silver-dim);font-size:.92rem;margin-bottom:1.1rem}
+.card.wide .shot{aspect-ratio:8/5}
+.build-list{margin:0;padding-left:1.1rem;color:var(--silver-dim);font-size:.9rem;line-height:1.55;display:flex;flex-direction:column;gap:.35rem}
+.build-list b{color:var(--off);font-weight:500}
+.wide-body{display:flex;flex-direction:column;gap:.9rem}
+@media(min-width:900px){
+  .card.wide{display:grid;grid-template-columns:1.15fr 1fr;gap:1.8rem;align-items:center}
+  .card.wide .shot{margin:0;border:1px solid var(--rule-soft);border-radius:8px;aspect-ratio:8/5}
+  .card.wide .shot img{object-fit:contain;object-position:center}
+  .wide-body{padding:.2rem .2rem .2rem 0}
+}
 /* ── foundation band ────────────────────────────────────── */
 .foundation{
   margin-top:1.4rem;border:1px solid var(--rule-soft);border-radius:8px;
@@ -327,7 +337,7 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
     <div class="wordmark">SMARTPLAY <b>AI</b></div>
   </div>
   <nav class="nav">
-    <a href="#products">Products</a><a href="#games">Games</a><a href="#technology">Technology</a>
+    <a href="#products">Products</a><a href="#games">Games</a><a href="#build">Build with us</a><a href="#technology">Technology</a>
     <a href="#evidence">Evidence</a><a href="#company">Company</a><a href="/investors">Investors</a>
   </nav>
   <a class="cta" href="mailto:tim@smartplaycaddie.com">Contact&nbsp;→</a>
@@ -540,6 +550,26 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
           <a class="try" href="https://inner-library-snowy.vercel.app" target="_blank" rel="noopener">Try it free &rarr;</a>
         </article>
       </div>
+
+      <h3 class="grp" id="build">Build with us</h3>
+      <p class="grp-lede">Everything above was built here. Your idea can be next.</p>
+      <article class="card wide" style="--accent:#8B5CF6">
+        <a class="shot" href="mailto:tim@smartplaycaddie.com?subject=What%20can%20we%20build%20together%3F"><img src="/img/build.webp" alt="Tiles of SmartPlay apps next to an open dashed tile reading Your app here" width="1200" height="750" loading="lazy"></a>
+        <div class="wide-body">
+          <div class="card-head">
+            <div><h3>What can we build together?</h3><div class="sub">Custom apps and AI for your business</div></div>
+            <span class="chip live">Taking projects</span>
+          </div>
+          <p>Bring us the problem. We design and build the app, the AI inside it, and the engines underneath, the same way we built every product on this page, and we keep it running after launch.</p>
+          <ul class="build-list">
+            <li><b>Custom apps:</b> phone, web and browser extensions.</li>
+            <li><b>AI in the work you already do:</b> assistants, voice, camera analysis and reports, fitted to how your team works.</li>
+            <li><b>Implementation and support:</b> setup, training and fixes after go-live, with self-healing built in.</li>
+            <li><b>Operations experience:</b> 26 years running healthcare imaging operations, so we start from the workflow, not the tech.</li>
+          </ul>
+          <a class="try" href="mailto:tim@smartplaycaddie.com?subject=What%20can%20we%20build%20together%3F">Start the conversation &rarr;</a>
+        </div>
+      </article>
 
       <div class="foundation">
         <div class="fnd">
