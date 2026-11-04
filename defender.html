@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Defender — SmartPlay CyberSecurity | SmartPlay AI</title>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<meta name="description" content="Defender is SmartPlay AI's independent guard for the AI agents in your browser. It tells you when an agent may be near your email, bank or health portal, and says plainly what it cannot stop. Veteran owned and developed.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#0A0F1F">
+<link rel="canonical" href="https://www.smartplayapps.com/defender">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SmartPlay AI">
+<meta property="og:title" content="Defender — SmartPlay CyberSecurity">
+<meta property="og:description" content="An independent guard for the AI agents in your browser. Honest about what it can and cannot stop.">
+<meta property="og:url" content="https://www.smartplayapps.com/defender">
+<meta property="og:image" content="https://www.smartplayapps.com/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@200;400;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+:root{
+  --navy:#0A0F1F;--indigo:#1A1F4D;--surface:#0D1327;--surface-2:#111838;
+  --rule:#1E254A;--rule-soft:#161C39;--cobalt:#2563FF;--cobalt-hi:#6B93FF;
+  --violet:#8B5CF6;--violet-hi:#A78BFA;--silver:#D1D5DB;--silver-dim:#8891A8;
+  --off:#FAFAFC;--pad:clamp(1rem,5vw,2.5rem);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--navy);color:var(--off);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:Sora,Inter,system-ui,sans-serif;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:var(--pad)}
+.wordmark{font-family:Sora;font-weight:200;letter-spacing:.22em;white-space:nowrap;font-size:.92rem}
+.wordmark b{font-weight:200;color:var(--cobalt)}
+.masthead{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.4rem}
+.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.brand svg{width:30px;height:30px;flex:none}
+.nav{display:flex;gap:1.2rem;align-items:center;font-size:.9rem;color:var(--silver)}
+.nav a{text-decoration:none}
+.nav .home{display:none}@media(min-width:640px){.nav .home{display:inline}}
+.btn{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;padding:.62rem 1.2rem;border-radius:100px;font-size:.88rem;font-weight:500;white-space:nowrap}
+.btn.primary{background:var(--cobalt);color:#fff}
+.btn.primary:hover,.btn.primary:focus-visible{background:#1D53E0}
+.btn.ghost{border:1px solid var(--rule);color:var(--off)}
+.btn.ghost:hover,.btn.ghost:focus-visible{border-color:var(--cobalt)}
+.eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver-dim);display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--cobalt);flex:none}
+.chip{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .55rem;border-radius:3px;border:1px solid var(--violet-hi);color:var(--violet-hi);white-space:nowrap}
+
+/* hero */
+.hero{display:grid;gap:2.5rem;align-items:center;padding-block:clamp(2rem,7vw,5rem)}
+@media(min-width:860px){.hero{grid-template-columns:1.15fr .85fr}}
+.hero h1{font-weight:600;font-size:clamp(2.6rem,8vw,4.6rem);letter-spacing:-.03em;line-height:1}
+.hero .lede{font-size:clamp(1.05rem,2.2vw,1.3rem);color:var(--silver);max-width:34ch;margin-top:1.1rem}
+.hero .row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.8rem;align-items:center}
+.hero .tagline{display:flex;gap:.6rem;align-items:center;margin-top:1.2rem}
+.mark{width:min(78vw,340px);aspect-ratio:1;margin-inline:auto;display:grid;place-items:center;border-radius:28px;background:radial-gradient(70% 70% at 50% 45%,#1A1F4D 0%,#0D1327 70%);border:1px solid var(--rule-soft)}
+.mark svg{width:72%;height:72%;overflow:visible}
+.mark-state{font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--silver-dim);text-align:center;margin-top:.9rem}
+
+/* Defender lock cycle: open -> top locks -> current runs -> bottom locks -> sealed glow. 6s loop. */
+.d-base{opacity:.28}
+.d-current{stroke-dasharray:100;stroke-dashoffset:100}
+.d-glow{opacity:0}
+@media(prefers-reduced-motion:no-preference){
+  .anim .d-current{animation:run 6s ease-in-out infinite}
+  .anim .d-top{animation:topfill 6s ease-in-out infinite}
+  .anim .d-bot{animation:botfill 6s ease-in-out infinite}
+  .anim .d-glow{animation:glow 6s ease-in-out infinite}
+  @keyframes run{0%,12%{stroke-dashoffset:100}45%,88%{stroke-dashoffset:0}100%{stroke-dashoffset:100}}
+  @keyframes topfill{0%,6%{fill:#0A0F1F}12%,90%{fill:#FAFAFC}100%{fill:#0A0F1F}}
+  @keyframes botfill{0%,45%{fill:#0A0F1F}52%,90%{fill:#FAFAFC}100%{fill:#0A0F1F}}
+  @keyframes glow{0%,50%{opacity:0}60%,86%{opacity:1}100%{opacity:0}}
+}
+@media(prefers-reduced-motion:reduce){
+  .anim .d-current{stroke-dashoffset:0}.anim .d-top,.anim .d-bot{fill:#FAFAFC}.anim .d-glow{opacity:1}
+}
+
+section{padding-block:clamp(2.5rem,6vw,4.5rem);border-top:1px solid var(--rule-soft)}
+.head{display:flex;flex-direction:column;gap:.9rem;margin-bottom:2rem;max-width:62ch}
+.head h2{font-weight:600;font-size:clamp(1.6rem,3.6vw,2.4rem);letter-spacing:-.02em;line-height:1.15}
+.head p{color:var(--silver)}
+
+/* states */
+.states{display:grid;gap:1rem;grid-template-columns:repeat(2,1fr)}
+@media(min-width:860px){.states{grid-template-columns:repeat(4,1fr)}}
+.state{background:var(--surface);border:1px solid var(--rule-soft);border-radius:12px;padding:1.2rem;display:flex;flex-direction:column;gap:.6rem}
+.state svg{width:64px;height:64px;overflow:visible}
+.state h3{font-size:1rem;font-weight:600}
+.state p{color:var(--silver-dim);font-size:.88rem;line-height:1.5}
+
+/* can / cannot */
+.two{display:grid;gap:1.2rem}
+@media(min-width:860px){.two{grid-template-columns:1fr 1fr}}
+.panel{background:var(--surface);border:1px solid var(--rule-soft);border-radius:12px;padding:clamp(1.2rem,3vw,1.8rem)}
+.col-title{font-family:Sora;font-weight:600;font-size:1rem;margin-bottom:1rem}
+.col-title.now{color:var(--cobalt-hi)}.col-title.not{color:var(--violet-hi)}
+.ledger{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.85rem}
+.ledger li{display:flex;gap:.8rem;color:var(--silver);font-size:.95rem;line-height:1.5}
+.ledger li::before{content:"";width:6px;height:6px;margin-top:.55rem;flex:none;border-radius:50%;background:var(--cobalt)}
+.ledger.not li::before{background:none;border:1px solid var(--violet-hi)}
+.ledger b{color:var(--off);font-weight:500}
+
+/* screens */
+.screens{display:grid;gap:1.2rem;grid-template-columns:1fr}
+@media(min-width:700px){.screens{grid-template-columns:1fr 1fr}}
+figure{margin:0;background:var(--surface);border:1px solid var(--rule-soft);border-radius:12px;padding:1rem;display:flex;flex-direction:column;gap:.8rem}
+figure img{width:100%;height:auto;border-radius:8px;display:block;max-width:380px;margin-inline:auto}
+figcaption{color:var(--silver-dim);font-size:.86rem}
+
+/* next: intent screening */
+.case{display:grid;gap:1.4rem}
+@media(min-width:860px){.case{grid-template-columns:.9fr 1.1fr}}
+.checks{display:grid;gap:.5rem}
+.check{display:flex;justify-content:space-between;gap:1rem;align-items:center;background:var(--navy);border:1px solid var(--rule-soft);border-radius:8px;padding:.7rem 1rem;font-size:.92rem}
+.check .ok{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--cobalt-hi);letter-spacing:.08em}
+.signals{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.signals li{counter-increment:s;display:grid;grid-template-columns:2rem 1fr;gap:.6rem;color:var(--silver);font-size:.94rem;line-height:1.5}
+.signals li::before{content:counter(s,decimal-leading-zero);font-family:"JetBrains Mono",monospace;font-size:.75rem;color:var(--violet-hi);padding-top:.15rem}
+.note{color:var(--silver-dim);font-size:.86rem;margin-top:1rem}
+
+.why{display:grid;gap:1.2rem}
+@media(min-width:860px){.why{grid-template-columns:repeat(3,1fr)}}
+.why .panel h3{font-size:1.02rem;font-weight:600;margin-bottom:.5rem}
+.why .panel p{color:var(--silver-dim);font-size:.92rem}
+blockquote{margin:0 0 2rem;font-family:Sora;font-weight:400;font-size:clamp(1.15rem,2.6vw,1.6rem);line-height:1.35;color:var(--off);max-width:40ch;border-left:2px solid var(--violet);padding-left:1.2rem}
+
+.cta{text-align:center;display:flex;flex-direction:column;align-items:center;gap:1rem}
+.cta h2{font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);letter-spacing:-.02em}
+.cta p{color:var(--silver);max-width:52ch}
+
+.vet{display:inline-flex;align-items:center;gap:.45rem;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--silver);border:1px solid var(--rule);border-radius:100px;padding:.3rem .8rem}
+footer{border-top:1px solid var(--rule-soft);padding-block:2.4rem;color:var(--silver-dim);font-size:.86rem}
+footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--rule)}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="spg" x1="14" y1="10" x2="50" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#2563FF"/><stop offset="1" stop-color="#8B5CF6"/>
+  </linearGradient>
+  <filter id="dglow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs></svg>
+
+<div class="wrap masthead">
+  <a class="brand" href="/">
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M46 18H28a8 8 0 0 0 0 16h8a8 8 0 0 1 0 16H18" fill="none" stroke="url(#spg)" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="46" cy="18" r="4.6" fill="#0A0F1F" stroke="url(#spg)" stroke-width="3.2"/>
+      <circle cx="18" cy="50" r="4.6" fill="#0A0F1F" stroke="url(#spg)" stroke-width="3.2"/>
+    </svg>
+    <span class="wordmark">SMARTPLAY <b>AI</b></span>
+  </a>
+  <nav class="nav">
+    <a class="home" href="/#products">All products</a>
+    <a class="btn primary" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20Defender">Join the lab</a>
+  </nav>
+</div>
+
+<main>
+  <div class="wrap hero">
+    <div>
+      <div class="eyebrow">SmartPlay CyberSecurity</div>
+      <h1 style="margin-top:1rem">Defender</h1>
+      <p class="lede">An independent guard for the AI agents in your browser. It tells you when an agent may be near what matters, and it is honest about what it can&rsquo;t stop.</p>
+      <div class="tagline"><span class="chip">In the lab</span><span style="color:var(--silver-dim);font-size:.88rem">Chrome extension &middot; not yet in the Chrome Web Store</span></div>
+      <div class="row">
+        <a class="btn primary" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20Defender">Ask to test it &rarr;</a>
+        <a class="btn ghost" href="#honest">What it can and can&rsquo;t do</a>
+      </div>
+    </div>
+    <div>
+      <div class="mark anim" role="img" aria-label="The Defender: the SmartPlay S locking at both ends and glowing when sealed">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <path class="d-base" d="M46 18H28a8 8 0 0 0 0 16h8a8 8 0 0 1 0 16H18" fill="none" stroke="url(#spg)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path class="d-glow" d="M46 18H28a8 8 0 0 0 0 16h8a8 8 0 0 1 0 16H18" fill="none" stroke="url(#spg)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" filter="url(#dglow)"/>
+          <path class="d-current" pathLength="100" d="M46 18H28a8 8 0 0 0 0 16h8a8 8 0 0 1 0 16H18" fill="none" stroke="url(#spg)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle class="d-top" cx="46" cy="18" r="4.6" fill="#0A0F1F" stroke="url(#spg)" stroke-width="3.2"/>
+          <circle class="d-bot" cx="18" cy="50" r="4.6" fill="#0A0F1F" stroke="url(#spg)" stroke-width="3.2"/>
+        </svg>
+      </div>
+      <div class="mark-state">Open &rarr; Locking &rarr; Sealed</div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">The Defender is the S</div>
+        <h2>One mark, four states</h2>
+        <p>No face and no mascot. The SmartPlay S is the Defender, and how it looks tells you where you stand at a glance.</p>
+      </div>
+      <div class="states">
+        <div class="state">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M46 18H28a8 8 0 0 0 0 16h8a8 8 0 0 1 0 16H18" fill="none" stroke="url(#spg)" stroke-width="7" stroke-linecap="round" opacity=".28"/><circle cx="46" cy="18" r="4.6" fill="#0A0F1F" stroke="url(#spg)" stroke-width="3.2"/><circle cx="18" cy="50" r="4.6" fill="#0A0F1F" stroke="url(#spg)" stroke-width="3.2" opacity=".45"/></svg>
+          <h3>Open</h3><p>Protection is off. Nothing is being watched.</p>
+        </div>
+        <div class="state">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M46 18H28a8 8 0 0 0 0 16h8a8 8 0 0 1 0 16H18" fill="none" stroke="url(#spg)" stroke-width="7" stroke-linecap="round" opacity=".28"/><path d="M46 18H28a8 8 0 0 0 0 16h8" fill="none" stroke="url(#spg)" stroke-width="7" stroke-linecap="round"/><circle cx="46" cy="18" r="4.6" fill="#FAFAFC" stroke="url(#spg)" stroke-width="3.2"/><circle cx="18" cy="50" r="4.6" fill="#0A0F1F" stroke="url(#spg)" stroke-width="3.2"/></svg>
+          <h3>Locking</h3><p>Protection is engaging. One end locks and current runs through the S.</p>
+        </div>
+        <div class="state">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M46 18H28a8 8 0 0 0 0 16h8a8 8 0 0 1 0 16H18" fill="none" stroke="url(#spg)" stroke-width="7" stroke-linecap="round" filter="url(#dglow)"/><circle cx="46" cy="18" r="4.6" fill="#FAFAFC" stroke="url(#spg)" stroke-width="3.2"/><circle cx="18" cy="50" r="4.6" fill="#FAFAFC" stroke="url(#spg)" stroke-width="3.2"/></svg>
+          <h3>Sealed</h3><p>Protected. Both ends locked, the whole S solid and glowing.</p>
+        </div>
+        <div class="state">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M46 18H28a8 8 0 0 0 0 16h8a8 8 0 0 1 0 16H18" fill="none" stroke="url(#spg)" stroke-width="7" stroke-linecap="round"/><circle cx="18" cy="50" r="8.5" fill="none" stroke="#8B5CF6" stroke-width="1.2" opacity=".6"/><circle cx="46" cy="18" r="4.6" fill="#FAFAFC" stroke="url(#spg)" stroke-width="3.2"/><circle cx="18" cy="50" r="4.6" fill="#0A0F1F" stroke="#8B5CF6" stroke-width="3.2"/></svg>
+          <h3>Alert</h3><p>Something needs your attention. The open end rings until you look.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="honest">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Honest degradation</div>
+        <h2>What it does today, and what it can&rsquo;t do</h2>
+        <p>Security products tend to promise more than they can enforce. We checked what Chrome actually allows an extension to do, and only list what holds up.</p>
+      </div>
+      <div class="two">
+        <div class="panel">
+          <div class="col-title now">Working in the lab build</div>
+          <ul class="ledger">
+            <li><span><b>Scope alerts.</b> Warns when a tab lands in a tab group that looks like an AI agent&rsquo;s.</span></li>
+            <li><span><b>Sensitive-site alerts.</b> Email, banking and health portals are on the list by default. If an agent may be on one, Defender tells you.</span></li>
+            <li><span><b>Read-only consent.</b> You can give an agent 30 minutes of read-only access to one tab. Defender records it and lets it expire.</span></li>
+            <li><span><b>Setup scan.</b> Lists your installed extensions and what each one is allowed to touch.</span></li>
+            <li><span><b>Activity log, on your device.</b> What Defender saw and decided. Never what a page said.</span></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <div class="col-title not">What it can&rsquo;t do</div>
+          <ul class="ledger not">
+            <li><span><b>It can&rsquo;t stop another AI agent from reading a page.</b> Chrome gives one extension no way to block another&rsquo;s reads.</span></li>
+            <li><span><b>It can&rsquo;t prove which agent owns a tab group.</b> So every alert says &ldquo;possible&rdquo;, never &ldquo;confirmed&rdquo;.</span></li>
+            <li><span><b>It can&rsquo;t pause another agent&rsquo;s clicks or sends.</b> That switch is shown greyed out, with the reason, instead of pretending.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="screens" style="margin-top:1.2rem">
+        <figure><img src="/img/defender-protected.webp" width="380" height="570" loading="lazy" alt="Defender popup showing the sealed S, the word Protected, and switches for protection, sensitive-site lock and scope alerts, with the action gate greyed out"><figcaption>Sealed. The action gate is greyed out and says why.</figcaption></figure>
+        <figure><img src="/img/defender-alert.webp" width="380" height="570" loading="lazy" alt="Defender popup in alert state warning of possible AI agent access on a sensitive test site, offering read-only access for 30 minutes"><figcaption>Alert on a test site. &ldquo;Possible&rdquo;, with a read-only option.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Next in the lab &middot; planned, not built</div>
+        <h2>Checking what an email wants, not just who sent it</h2>
+        <p>In November a fake job-offer email reached one of our inboxes. It passed every sender check. The domain was real, so the filters let it through. What gave it away was what it asked for.</p>
+      </div>
+      <div class="case">
+        <div class="panel">
+          <div class="col-title now">Sender checks: all passed</div>
+          <div class="checks">
+            <div class="check"><span>SPF</span><span class="ok">PASS</span></div>
+            <div class="check"><span>DKIM</span><span class="ok">PASS</span></div>
+            <div class="check"><span>DMARC</span><span class="ok">PASS</span></div>
+            <div class="check"><span>Spam score</span><span class="ok">LOW</span></div>
+          </div>
+          <p class="note">Passing these proves the email came from where it says. It says nothing about whether it&rsquo;s safe.</p>
+        </div>
+        <div class="panel">
+          <div class="col-title not">What it was trying to do</div>
+          <ol class="signals">
+            <li>The display name didn&rsquo;t match the address it came from.</li>
+            <li>You weren&rsquo;t in To or Cc. You were blind-copied, under a &ldquo;noreply&rdquo; address.</li>
+            <li>It greeted someone else by name.</li>
+            <li>It asked for your cell number, to move the conversation off email.</li>
+            <li>It carried a web-page attachment.</li>
+          </ol>
+          <p class="note">Defender&rsquo;s next step is to read these signals from what&rsquo;s on screen and switch to Alert, still saying &ldquo;possible&rdquo;. First we have to confirm Chrome lets an extension read them in Gmail and Outlook.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Why independent</div>
+        <h2>Your guard shouldn&rsquo;t work for the thing it&rsquo;s guarding</h2>
+      </div>
+      <blockquote>Security sold by the company that makes the AI is like the casino buying the gaming commission.</blockquote>
+      <div class="why">
+        <div class="panel"><h3>Yours, not the agent&rsquo;s</h3><p>Defender is a separate product with no stake in any AI company. It works for the person at the keyboard.</p></div>
+        <div class="panel"><h3>On your device</h3><p>Settings and the activity log stay in your browser. No page text leaves it.</p></div>
+        <div class="panel"><h3>Says &ldquo;possible&rdquo;</h3><p>When it can&rsquo;t know something for sure, it says so instead of guessing.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap cta">
+      <span class="chip">In the lab</span>
+      <h2>Want to test Defender?</h2>
+      <p>It runs as a Chrome extension in a test profile with fake data while we finish the lab work. Ask, and we&rsquo;ll get you a build.</p>
+      <a class="btn primary" href="mailto:support@smartplaycaddie.com?subject=Beta%20access%20request%3A%20Defender">Ask to test it &rarr;</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;align-items:center">
+    <div><span class="wordmark" style="font-size:.9rem">SMARTPLAY <b>AI</b> LLC</span><p style="margin-top:.7rem"><span class="vet"><svg viewBox="0 0 190 100" width="24" height="13" role="img" aria-label="United States flag" style="flex:none;border-radius:2px"><rect width="190" height="100" fill="#FFFFFF"/><rect y="0.0" width="190" height="7.7" fill="#B22234"/><rect y="15.4" width="190" height="7.7" fill="#B22234"/><rect y="30.8" width="190" height="7.7" fill="#B22234"/><rect y="46.2" width="190" height="7.7" fill="#B22234"/><rect y="61.5" width="190" height="7.7" fill="#B22234"/><rect y="76.9" width="190" height="7.7" fill="#B22234"/><rect y="92.3" width="190" height="7.7" fill="#B22234"/><rect width="76" height="53.8" fill="#3C3B6E"/><circle cx="6.3" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="48.6" r="2" fill="#FFFFFF"/></svg>Veteran Owned and Developed</span></p></div>
+    <div><a href="/">smartplayapps.com</a> &middot; <a href="/#products">All products</a></div>
+  </div>
+</footer>
+</html>
