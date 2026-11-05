@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /media/private
+Disallow: /private-media/
 
 Sitemap: https://www.smartplayapps.com/sitemap.xml

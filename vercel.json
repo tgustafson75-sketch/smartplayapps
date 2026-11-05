@@ -1,4 +1,20 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "functions": {
+    "api/media-private.js": {
+      "includeFiles": "private-media/**"
+    }
+  },
+  "rewrites": [
+    { "source": "/media/private", "destination": "/api/media-private" },
+    { "source": "/media/private/:file/download", "destination": "/api/media-private?f=:file&dl=1" },
+    { "source": "/media/private/:file", "destination": "/api/media-private?f=:file" }
+  ],
+  "headers": [
+    {
+      "source": "/media/(access|private)(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    }
+  ]
 }

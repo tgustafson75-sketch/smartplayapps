@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Private media access | SmartPlay AI</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0A0F1F">
+<link rel="canonical" href="https://www.smartplayapps.com/media/access">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@200;400;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+:root{--navy:#0A0F1F;--surface:#0D1327;--rule:#1E254A;--rule-soft:#161C39;--cobalt:#2563FF;--cobalt-hi:#6B93FF;--violet-hi:#A78BFA;--silver:#D1D5DB;--silver-dim:#8891A8;--off:#FAFAFC}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--navy);color:var(--off);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;padding:0 16px;display:flex;flex-direction:column}
+a{color:var(--cobalt-hi)}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+.wordmark{font-family:Sora;font-weight:200;letter-spacing:.22em;font-size:.92rem;text-decoration:none;color:var(--off)}
+.wordmark b{font-weight:200;color:var(--cobalt)}
+.wrap{max-width:460px;width:100%;margin:0 auto;padding-block:2.5rem}
+.eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver-dim);margin-top:2rem;display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--cobalt);flex:none}
+h1{font-family:Sora,Inter,system-ui,sans-serif;font-weight:600;font-size:clamp(1.8rem,6vw,2.4rem);letter-spacing:-.02em;line-height:1.15;margin:.8rem 0 0}
+p{color:var(--silver);margin:.8rem 0 0}
+form{margin-top:1.8rem;display:flex;flex-direction:column;gap:.9rem}
+label{font-size:.88rem;color:var(--silver)}
+input{width:100%;font:inherit;font-size:1rem;color:var(--off);background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:.8rem .95rem;margin-top:.4rem}
+input:focus{border-color:var(--cobalt);outline:none}
+button{font:inherit;font-weight:500;font-size:.95rem;color:#fff;background:var(--cobalt);border:0;border-radius:100px;padding:.75rem 1.4rem;cursor:pointer;align-self:flex-start}
+button:hover{background:#1D53E0}
+.miss{display:none;color:var(--violet-hi);font-size:.92rem;margin-top:1rem;border:1px solid var(--rule);border-radius:10px;padding:.7rem .9rem}
+.miss.show{display:block}
+.back{margin-top:2rem;font-size:.9rem}
+footer{border-top:1px solid var(--rule-soft);padding-block:1.6rem;color:var(--silver-dim);font-size:.86rem;max-width:460px;width:100%;margin:0 auto}
+footer a{color:var(--silver)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="wordmark" href="/">SMARTPLAY <b>AI</b></a>
+  <div class="eyebrow">Media · Private</div>
+  <h1>Enter access code</h1>
+  <p>This section holds class materials and build graphics. Enter the code you were given.</p>
+
+  <p class="miss" id="miss" role="alert">That code didn&rsquo;t work.</p>
+
+  <form method="post" action="/api/media-access">
+    <label for="code">Access code
+      <input id="code" name="code" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" required autofocus>
+    </label>
+    <button type="submit">Continue</button>
+  </form>
+
+  <p class="back"><a href="/media">&larr; Back to Media</a></p>
+</main>
+
+<footer>SmartPlay AI · Veteran Owned and Developed</footer>
+
+<script>
+  // Shows the miss message only; the check itself happens on the server.
+  if (new URLSearchParams(location.search).has('miss')) {
+    document.getElementById('miss').classList.add('show');
+  }
+</script>
+</body>
+</html>
