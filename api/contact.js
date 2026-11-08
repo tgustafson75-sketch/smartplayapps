@@ -3,7 +3,10 @@
 // them in the Build Engine owner view. Guards: honeypot field, size limits, 5 requests per IP per hour.
 const crypto = require('crypto');
 
-const TOPICS = ['Beta access', 'Build with us', 'Bring a class', 'Investors', 'Other'];
+const TOPICS = ['Beta access', 'Build with us', 'Veteran seat', 'Bring a class', 'Investors', 'Other'];
+// /build form extras, folded into the message so the table needs no new columns.
+const SERVICES = ['Custom app', 'AI in our workflow', 'Consulting', 'Implementation & support', 'Not sure yet'];
+const DEALS = ['Client owns the IP', 'Shared IP', 'Flat fee', 'Not sure yet'];
 const PRODUCTS = ['SmartBay AI', 'SmartManage', 'SmartPump', 'SmartMotion', 'Gridiron Life', 'Mayor of the Lake', 'Save the AMX', 'Defender', 'SmartPlay Studio', 'Rondo', 'PlaySmart'];
 
 function readBody(req) {
@@ -51,7 +54,11 @@ module.exports = async function contact(req, res) {
   const product = topic === 'Beta access' && PRODUCTS.includes(d.product) ? d.product : null;
   const name = clip(d.name, 120);
   const email = clip(d.email, 200);
-  const message = clip(d.message, 3000);
+  const service = topic === 'Build with us' && SERVICES.includes(d.service) ? d.service : null;
+  const deal = topic === 'Build with us' && DEALS.includes(d.deal) ? d.deal : null;
+  const extras = [service && `Service: ${service}`, deal && `Deal: ${deal}`].filter(Boolean).join('\n');
+  const body = clip(d.message, 3000);
+  const message = extras ? `${extras}${body ? `\n\n${body}` : ''}` : body;
   if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return send(res, 400, 'Please add your name and a valid email.');
 
   const url = process.env.SUPABASE_URL;
