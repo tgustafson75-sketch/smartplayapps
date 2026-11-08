@@ -279,7 +279,7 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
   </nav>
 </div>
 
-<nav class="toc noprint" aria-label="Slides"><div class="wrap"><a href="#s1">Overview</a><a href="#s2">Problem</a><a href="#s3">What we built</a><a href="#s4">Caddie</a><a href="#s5">Market</a><a href="#s6">Engine</a><a href="#s7">Evidence</a><a href="#s8">Business model</a><a href="#s9">Why we win</a><a href="#s10">Roadmap</a><a href="#s11">Founder &amp; team</a><a href="#s12">The ask</a><a href="#s13">Sources</a></div></nav>
+<nav class="toc noprint" aria-label="Slides"><div class="wrap"><a href="#s1">Overview</a><a href="#s2">Problem</a><a href="#s3">What we built</a><a href="#s4">Caddie</a><a href="#s5">Market</a><a href="#s6">Engine</a><a href="#s7">Evidence</a><a href="#st" hidden>Traction</a><a href="#s8">Business model</a><a href="#sv">Venues</a><a href="#s9">Why we win</a><a href="#s10">Roadmap</a><a href="#s11">Team</a><a href="#s12">The ask</a><a href="#s13">Sources</a></div></nav>
 <div class="progress" aria-hidden="true"></div>
 <main class="wrap">
   <div class="intro" style="margin:0 0 1.2rem"><h1 style="font-family:Inter;font-weight:500;font-size:1rem;color:var(--silver);margin:0">SmartPlay AI investor &amp; strategic partner overview: AI golf caddie and golf simulator AI</h1><p style="color:var(--silver-dim);font-size:.9rem;margin-top:.2rem">November 2026 · <a href="/contact?topic=Investors">tim@smartplayapps.com</a> · <a href="/SmartPlay-AI-Investor-Deck.pdf" download>Download the deck (PDF)</a></p></div>
@@ -368,7 +368,7 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
       <div class="box"><h3>Facility opportunity</h3><p>6.5% of US golf facilities have installed simulators, and 13% plan to add them within one to two years. Every new bay is a place a SmartBay AI lesson can run.</p></div>
       <div class="box"><h3>Expansion with the same engine</h3><p>The engine is already in beta outside golf: SmartManage (a life and executive assistant), SmartPump (fitness training) and SmartMotion (camera motion analysis).</p></div>
     </div>
-    <p class="foot">SOURCES: NATIONAL GOLF FOUNDATION. SEE SLIDE 13.</p>
+    <p class="foot">SOURCES: NATIONAL GOLF FOUNDATION. SEE THE SOURCES SLIDE.</p>
   </section>
 
   <!-- 6 engine -->
@@ -413,6 +413,14 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
     </div>
   </section>
 
+  <!-- traction: rendered only from /traction.json (Command Center numbers via Cowork); hidden when absent -->
+  <section id="st" class="slide" aria-label="Traction" hidden>
+    <div class="eyebrow">Traction<span class="num"></span></div>
+    <h2>Traction</h2>
+    <div class="body g3" id="traction-stats"></div>
+    <p class="foot" id="traction-asof"></p>
+  </section>
+
   <!-- 8 business model -->
   <section id="s8" class="slide" aria-label="Business model">
     <div class="eyebrow">Business model<span class="num">08</span></div>
@@ -431,7 +439,7 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
 
   <!-- venues -->
   <section id="sv" class="slide" aria-label="Venues">
-    <div class="eyebrow">Venues<span class="num">10</span></div>
+    <div class="eyebrow">Venues<span class="num">09</span></div>
     <h2>From the indoor muni to the course</h2>
     <p class="sub">An indoor muni is an affordable, walk-in simulator venue: the public course of indoor golf. It is where new and returning golfers start, and SmartBay AI runs the lessons there around the clock, with no staff needed in the bay.</p>
     <div class="body g3">
@@ -444,7 +452,7 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
 
   <!-- 9 why we win -->
   <section id="s9" class="slide" aria-label="Why we win">
-    <div class="eyebrow">Why we win<span class="num">09</span></div>
+    <div class="eyebrow">Why we win<span class="num">10</span></div>
     <h2>Built to be trusted on the shot that matters</h2>
     <div class="body g3">
       <div class="box"><h3>No hardware</h3><p>There is nothing to buy, charge or screw into a grip, so a new player can start for free.</p></div>
@@ -458,7 +466,7 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
 
   <!-- 10 roadmap -->
   <section id="s10" class="slide" aria-label="Roadmap">
-    <div class="eyebrow">Roadmap<span class="num">10</span></div>
+    <div class="eyebrow">Roadmap<span class="num">11</span></div>
     <h2>Deepen golf first, then extend the engine</h2>
     <div class="body g3">
       <div class="box"><span class="tag live">Now</span><h3>Golf triad</h3><ul><li>Caddie live on both stores</li><li>SmartBay AI running at a partner facility</li><li>SmartPlay Golf live in the browser</li><li>Build Engine live</li></ul></div>
@@ -469,19 +477,20 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
 
   <!-- 11 founder -->
   <section id="s11" class="slide" aria-label="Founder">
-    <div class="eyebrow">Founder &amp; team<span class="num">11</span></div>
+    <div class="eyebrow">Founder &amp; team<span class="num">12</span></div>
     <h2>Built by an operator, not a lab</h2>
     <p class="vet"><svg viewBox="0 0 190 100" width="24" height="13" role="img" aria-label="United States flag" style="flex:none;border-radius:2px"><rect width="190" height="100" fill="#FFFFFF"/><rect y="0.0" width="190" height="7.7" fill="#B22234"/><rect y="15.4" width="190" height="7.7" fill="#B22234"/><rect y="30.8" width="190" height="7.7" fill="#B22234"/><rect y="46.2" width="190" height="7.7" fill="#B22234"/><rect y="61.5" width="190" height="7.7" fill="#B22234"/><rect y="76.9" width="190" height="7.7" fill="#B22234"/><rect y="92.3" width="190" height="7.7" fill="#B22234"/><rect width="76" height="53.8" fill="#3C3B6E"/><circle cx="6.3" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="48.6" r="2" fill="#FFFFFF"/></svg>Veteran Owned and Developed</p>
-    <div class="body g2">
+    <div class="body g3">
       <div class="box"><h3>Tim Gustafson, founder</h3><p>Ten years in uniform: four in the Marine Corps as a military policeman, then six in the Army as a medic and radiology technologist. That was followed by 26 years in healthcare operations, including COO leadership in radiology and imaging. He is a PGA HOPE alum.</p></div>
       <div class="box"><h3>Why that matters</h3><p>The products are aimed at the moment a decision gets made under pressure, with incomplete information, by someone who will own the outcome. That describes most of the founder's working life.</p><p style="margin-top:.4rem">Tim came to software from operations and taught himself to build with AI. He took Caddie from idea to a live, paid app on both stores.</p></div>
+      <div class="box"><h3>Lily, outreach lead</h3><p>Lily leads outreach, bringing SmartPlay to golfers, facilities and partners, and guides development so each build answers what those people actually ask for.</p></div>
     </div>
     <p class="sub"><b>The team around it:</b> fellow veterans who test every build, advisors who pressure-test the business, and ambassadors who bring SmartPlay into their own communities.</p>
 </section>
 
   <!-- 12 ask -->
   <section id="s12" class="slide ask" aria-label="The ask">
-    <div class="eyebrow">The ask<span class="num">12</span></div>
+    <div class="eyebrow">The ask<span class="num">13</span></div>
     <h2>Who we want to talk to</h2>
     <div class="body g3">
       <div class="box"><h3>Investors</h3><p>We are raising a significant round to take SmartPlay from a live product to scale. It funds paid SmartBay AI facility pilots, user acquisition for Caddie, the Build Engine launch, and our first venue.</p></div>
@@ -497,7 +506,7 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
 
   <!-- 13 sources -->
   <section id="s13" class="slide" aria-label="Sources">
-    <div class="eyebrow">Sources<span class="num">13</span></div>
+    <div class="eyebrow">Sources<span class="num">14</span></div>
     <h2>Sources and notes</h2>
     <ol class="srcs">
       <li>US golf participation for 2025: 48.1M total participants, and more than 29M on-course golfers. National Golf Foundation, 2026 Graffis Report, as reported by <a href="https://clubandresortbusiness.com/ngfs-graffis-report-shows-golf-participation-surpassed-29m-for-eighth-consecutive-year-of-growth/">Club + Resort Business</a>.</li>
@@ -518,13 +527,28 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
 </footer>
 <script>
 (function(){
+  var sec=document.getElementById('st');
+  function renumber(){var n=0;[].forEach.call(document.querySelectorAll('.slide'),function(sl){if(sl.hidden)return;n++;var e=sl.querySelector('.num');if(e)e.textContent=(n<10?'0':'')+n;});}
+  fetch('/traction.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(t){
+    if(!t||!Array.isArray(t.metrics)||!t.metrics.length||!t.asOf)return;
+    var box=document.getElementById('traction-stats');
+    t.metrics.forEach(function(m){if(m==null||m.value==null||!m.label)return;var d=document.createElement('div');d.className='box';var v=document.createElement('div');v.className='stat';v.textContent=m.value;var l=document.createElement('p');l.textContent=m.label;d.appendChild(v);d.appendChild(l);box.appendChild(d);});
+    if(!box.children.length)return;
+    if(t.headline)sec.querySelector('h2').textContent=t.headline;
+    document.getElementById('traction-asof').textContent=('AS OF '+t.asOf+(t.source?' · SOURCE: '+t.source:'')).toUpperCase();
+    sec.hidden=false;var a=document.querySelector('.toc a[href="#st"]');if(a)a.hidden=false;renumber();
+  }).catch(function(){});
+})();
+</script>
+<script>
+(function(){
   var links=[].slice.call(document.querySelectorAll('.toc a')),bar=document.querySelector('.progress');
   var slides=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
   var cur=-1;
   function onScroll(){
     var h=document.documentElement,max=h.scrollHeight-h.clientHeight;
     bar.style.width=(max>0?h.scrollTop/max*100:0)+'%';
-    var c=0;slides.forEach(function(s,i){if(s.getBoundingClientRect().top<window.innerHeight*.4)c=i});
+    var c=0;slides.forEach(function(s,i){if(!s.hidden&&s.getBoundingClientRect().top<window.innerHeight*.4)c=i});
     if(c!==cur){cur=c;links.forEach(function(a,i){a.classList.toggle('on',i===c)});
       var a=links[c],w=a.parentNode;w.scrollLeft=a.offsetLeft-w.clientWidth/2+a.offsetWidth/2;}
   }

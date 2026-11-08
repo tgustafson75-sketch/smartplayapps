@@ -29,3 +29,15 @@ site. This is the opposite of smartplaycaddie.com, where the apex is canonical
 because Apple App Review and Search Console hold apex URLs. Both work; the
 difference is deliberate and was left alone rather than changed under a live
 site for consistency's sake.
+
+## Investor traction (`/traction.json`)
+
+The Traction slide on `/investors` stays hidden until `traction.json` exists at the
+site root with real numbers. Numbers come from the Command Center (Cowork). Format:
+
+```json
+{ "asOf": "2026-11-15", "source": "Command Center", "headline": "optional",
+  "metrics": [ { "value": "1,234", "label": "what it counts" } ] }
+```
+
+No file, no `asOf`, or no metrics means no slide. Never commit placeholder numbers.
