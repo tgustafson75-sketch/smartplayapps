@@ -88,7 +88,7 @@ p{margin:0}
 /* ── sections ───────────────────────────────────────────── */
 section{padding-block:clamp(3.2rem,8vw,5.5rem);border-top:1px solid var(--rule-soft)}
 .head{margin-bottom:2.4rem;max-width:var(--measure)}
-.head h2{font-weight:600;font-size:clamp(1.4rem,3vw,1.95rem);letter-spacing:-.02em;margin-block:.8rem .6rem}
+.head h2,.head .hh{font-weight:600;font-size:clamp(1.4rem,3vw,1.95rem);letter-spacing:-.02em;margin-block:.8rem .6rem}
 .head p{color:var(--silver)}
 
 /* ── ecosystem ──────────────────────────────────────────── */
