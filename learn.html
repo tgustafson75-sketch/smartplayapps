@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learn to Build with AI — The SmartPlay Learning System | SmartPlay AI</title>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<meta name="description" content="The SmartPlay Learning System: five plain questions that take you from an idea to a working app built with AI. No coding background needed. Free workbook. Veteran owned and developed.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#0A0F1F">
+<link rel="canonical" href="https://www.smartplayapps.com/learn">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SmartPlay AI">
+<meta property="og:title" content="Learn to build with AI — The SmartPlay Learning System">
+<meta property="og:description" content="Five plain questions, answered in order, then built with AI. Free workbook.">
+<meta property="og:url" content="https://www.smartplayapps.com/learn">
+<meta property="og:image" content="https://www.smartplayapps.com/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@200;400;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+:root{
+  --navy:#0A0F1F;--indigo:#1A1F4D;--surface:#0D1327;--surface-2:#111838;
+  --rule:#1E254A;--rule-soft:#161C39;--cobalt:#2563FF;--cobalt-hi:#6B93FF;
+  --violet:#8B5CF6;--violet-hi:#A78BFA;--silver:#D1D5DB;--silver-dim:#8891A8;
+  --off:#FAFAFC;--pad:clamp(1rem,5vw,2.5rem);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--navy);color:var(--off);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:Sora,Inter,system-ui,sans-serif;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:var(--pad)}
+.wordmark{font-family:Sora;font-weight:200;letter-spacing:.22em;white-space:nowrap;font-size:.92rem}
+.wordmark b{font-weight:200;color:var(--cobalt)}
+.masthead{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.4rem}
+.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.brand svg{width:30px;height:30px;flex:none}
+.nav{display:flex;gap:1.2rem;align-items:center;font-size:.9rem;color:var(--silver)}
+.nav a{text-decoration:none}
+.nav .home{display:none}@media(min-width:640px){.nav .home{display:inline}}
+.btn{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;padding:.62rem 1.2rem;border-radius:100px;font-size:.88rem;font-weight:500;white-space:nowrap}
+.btn.primary{background:var(--cobalt);color:#fff}
+.btn.primary:hover,.btn.primary:focus-visible{background:#1D53E0}
+.btn.ghost{border:1px solid var(--rule);color:var(--off)}
+.btn.ghost:hover,.btn.ghost:focus-visible{border-color:var(--cobalt)}
+.eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver-dim);display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--cobalt);flex:none}
+.chip{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .55rem;border-radius:3px;border:1px solid var(--violet-hi);color:var(--violet-hi);white-space:nowrap}
+
+/* hero */
+.hero{display:grid;gap:2.5rem;align-items:center;padding-block:clamp(2rem,7vw,5rem)}
+@media(min-width:860px){.hero{grid-template-columns:1.15fr .85fr}}
+.hero h1{font-weight:600;font-size:clamp(2.6rem,8vw,4.6rem);letter-spacing:-.03em;line-height:1}
+.hero .lede{font-size:clamp(1.05rem,2.2vw,1.3rem);color:var(--silver);max-width:34ch;margin-top:1.1rem}
+.hero .row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.8rem;align-items:center}
+.hero .tagline{display:flex;gap:.6rem;align-items:center;margin-top:1.2rem}
+.mark{width:min(78vw,340px);aspect-ratio:1;margin-inline:auto;display:grid;place-items:center;border-radius:28px;background:radial-gradient(70% 70% at 50% 45%,#1A1F4D 0%,#0D1327 70%);border:1px solid var(--rule-soft)}
+.mark svg{width:72%;height:72%;overflow:visible}
+.mark-state{font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--silver-dim);text-align:center;margin-top:.9rem}
+
+/* Defender lock cycle: open -> top locks -> current runs -> bottom locks -> sealed glow. 6s loop. */
+.d-base{opacity:.28}
+.d-current{stroke-dasharray:100;stroke-dashoffset:100}
+.d-glow{opacity:0}
+@media(prefers-reduced-motion:no-preference){
+  .anim .d-current{animation:run 6s ease-in-out infinite}
+  .anim .d-top{animation:topfill 6s ease-in-out infinite}
+  .anim .d-bot{animation:botfill 6s ease-in-out infinite}
+  .anim .d-glow{animation:glow 6s ease-in-out infinite}
+  @keyframes run{0%,12%{stroke-dashoffset:100}45%,88%{stroke-dashoffset:0}100%{stroke-dashoffset:100}}
+  @keyframes topfill{0%,6%{fill:#0A0F1F}12%,90%{fill:#FAFAFC}100%{fill:#0A0F1F}}
+  @keyframes botfill{0%,45%{fill:#0A0F1F}52%,90%{fill:#FAFAFC}100%{fill:#0A0F1F}}
+  @keyframes glow{0%,50%{opacity:0}60%,86%{opacity:1}100%{opacity:0}}
+}
+@media(prefers-reduced-motion:reduce){
+  .anim .d-current{stroke-dashoffset:0}.anim .d-top,.anim .d-bot{fill:#FAFAFC}.anim .d-glow{opacity:1}
+}
+
+section{padding-block:clamp(2.5rem,6vw,4.5rem);border-top:1px solid var(--rule-soft)}
+.head{display:flex;flex-direction:column;gap:.9rem;margin-bottom:2rem;max-width:62ch}
+.head h2{font-weight:600;font-size:clamp(1.6rem,3.6vw,2.4rem);letter-spacing:-.02em;line-height:1.15}
+.head p{color:var(--silver)}
+
+/* states */
+.states{display:grid;gap:1rem;grid-template-columns:repeat(2,1fr)}
+@media(min-width:860px){.states{grid-template-columns:repeat(4,1fr)}}
+.state{background:var(--surface);border:1px solid var(--rule-soft);border-radius:12px;padding:1.2rem;display:flex;flex-direction:column;gap:.6rem}
+.state svg{width:64px;height:64px;overflow:visible}
+.state h3{font-size:1rem;font-weight:600}
+.state p{color:var(--silver-dim);font-size:.88rem;line-height:1.5}
+
+/* can / cannot */
+.two{display:grid;gap:1.2rem}
+@media(min-width:860px){.two{grid-template-columns:1fr 1fr}}
+.panel{background:var(--surface);border:1px solid var(--rule-soft);border-radius:12px;padding:clamp(1.2rem,3vw,1.8rem)}
+.col-title{font-family:Sora;font-weight:600;font-size:1rem;margin-bottom:1rem}
+.col-title.now{color:var(--cobalt-hi)}.col-title.not{color:var(--violet-hi)}
+.ledger{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.85rem}
+.ledger li{display:flex;gap:.8rem;color:var(--silver);font-size:.95rem;line-height:1.5}
+.ledger li::before{content:"";width:6px;height:6px;margin-top:.55rem;flex:none;border-radius:50%;background:var(--cobalt)}
+.ledger.not li::before{background:none;border:1px solid var(--violet-hi)}
+.ledger b{color:var(--off);font-weight:500}
+
+/* screens */
+.screens{display:grid;gap:1.2rem;grid-template-columns:1fr}
+@media(min-width:700px){.screens{grid-template-columns:1fr 1fr}}
+figure{margin:0;background:var(--surface);border:1px solid var(--rule-soft);border-radius:12px;padding:1rem;display:flex;flex-direction:column;gap:.8rem}
+figure img{width:100%;height:auto;border-radius:8px;display:block;max-width:380px;margin-inline:auto}
+figcaption{color:var(--silver-dim);font-size:.86rem}
+
+/* next: intent screening */
+.case{display:grid;gap:1.4rem}
+@media(min-width:860px){.case{grid-template-columns:.9fr 1.1fr}}
+.checks{display:grid;gap:.5rem}
+.check{display:flex;justify-content:space-between;gap:1rem;align-items:center;background:var(--navy);border:1px solid var(--rule-soft);border-radius:8px;padding:.7rem 1rem;font-size:.92rem}
+.check .ok{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--cobalt-hi);letter-spacing:.08em}
+.signals{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.signals li{counter-increment:s;display:grid;grid-template-columns:2rem 1fr;gap:.6rem;color:var(--silver);font-size:.94rem;line-height:1.5}
+.signals li::before{content:counter(s,decimal-leading-zero);font-family:"JetBrains Mono",monospace;font-size:.75rem;color:var(--violet-hi);padding-top:.15rem}
+.note{color:var(--silver-dim);font-size:.86rem;margin-top:1rem}
+
+.why{display:grid;gap:1.2rem}
+@media(min-width:860px){.why{grid-template-columns:repeat(3,1fr)}}
+.why .panel h3{font-size:1.02rem;font-weight:600;margin-bottom:.5rem}
+.why .panel p{color:var(--silver-dim);font-size:.92rem}
+blockquote{margin:0 0 2rem;font-family:Sora;font-weight:400;font-size:clamp(1.15rem,2.6vw,1.6rem);line-height:1.35;color:var(--off);max-width:40ch;border-left:2px solid var(--violet);padding-left:1.2rem}
+
+.cta{text-align:center;display:flex;flex-direction:column;align-items:center;gap:1rem}
+.cta h2{font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);letter-spacing:-.02em}
+.cta p{color:var(--silver);max-width:52ch}
+
+.vet{display:inline-flex;align-items:center;gap:.45rem;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--silver);border:1px solid var(--rule);border-radius:100px;padding:.3rem .8rem}
+footer{border-top:1px solid var(--rule-soft);padding-block:2.4rem;color:var(--silver-dim);font-size:.86rem}
+footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--rule)}
+
+/* learn */
+@media(max-width:480px){.nav a:not(.btn){display:none}}
+.hero h1{font-size:clamp(2.4rem,7vw,4.2rem)}
+.tagline{display:flex;gap:.6rem;align-items:center}
+.proof{display:flex;flex-wrap:wrap;align-items:baseline;gap:1rem 2rem}
+.proof .big{font-family:Sora;font-weight:600;font-size:clamp(2.6rem,8vw,4.4rem);letter-spacing:-.03em;color:var(--cobalt-hi);line-height:1}
+.proof p{color:var(--silver);font-size:clamp(1.05rem,2.2vw,1.25rem);max-width:40ch}
+.knows{display:grid;gap:1rem;grid-template-columns:1fr}
+@media(min-width:640px){.knows{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:980px){.knows{grid-template-columns:repeat(5,1fr)}}
+.know{background:var(--surface);border:1px solid var(--rule-soft);border-radius:12px;padding:1.2rem;display:flex;flex-direction:column;gap:.5rem}
+.know .n{font-family:Sora;font-weight:600;font-size:1.4rem;color:var(--cobalt-hi)}
+.know h3{font-size:1.02rem;font-weight:600}
+.know p{color:var(--silver-dim);font-size:.9rem;line-height:1.5}
+.know.hl{background:var(--indigo);border-color:var(--violet)}
+.know.hl .n{color:var(--violet-hi)}
+.know.hl p{color:var(--silver)}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="spg" x1="14" y1="10" x2="50" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#2563FF"/><stop offset="1" stop-color="#8B5CF6"/>
+  </linearGradient>
+  <filter id="dglow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs></svg>
+
+<div class="wrap masthead">
+  <a class="brand" href="/">
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M46 18H28a8 8 0 0 0 0 16h8a8 8 0 0 1 0 16H18" fill="none" stroke="url(#spg)" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="46" cy="18" r="4.6" fill="#0A0F1F" stroke="url(#spg)" stroke-width="3.2"/>
+      <circle cx="18" cy="50" r="4.6" fill="#0A0F1F" stroke="url(#spg)" stroke-width="3.2"/>
+    </svg>
+    <span class="wordmark">SMARTPLAY <b>AI</b></span>
+  </a>
+  <nav class="nav">
+    <a class="home" href="/#products">All products</a>
+    <a href="/media">Media</a>
+    <a class="btn primary" href="/downloads/five-knows-workbook.pdf" download>Free workbook</a>
+  </nav>
+</div>
+
+<main>
+  <div class="wrap hero">
+    <div>
+      <div class="eyebrow">The SmartPlay Learning System</div>
+      <h1 style="margin-top:1rem">Build your first working app.</h1>
+      <p class="lede">Five plain questions, answered in order, then built with AI. No coding background, no tech speak. Every lap teaches you one new piece.</p>
+      <div class="row">
+        <a class="btn primary" href="/downloads/five-knows-workbook.pdf" download>Get the free workbook &rarr;</a>
+        <a class="btn ghost" href="#knows">See the five steps</a>
+      </div>
+    </div>
+    <div>
+      <div class="mark anim" role="img" aria-label="The SmartPlay S sealing from one end to the other, the moment an app passes its done test">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <path class="d-base" d="M46 18H28a8 8 0 0 0 0 16h8a8 8 0 0 1 0 16H18" fill="none" stroke="url(#spg)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path class="d-glow" d="M46 18H28a8 8 0 0 0 0 16h8a8 8 0 0 1 0 16H18" fill="none" stroke="url(#spg)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" filter="url(#dglow)"/>
+          <path class="d-current" pathLength="100" d="M46 18H28a8 8 0 0 0 0 16h8a8 8 0 0 1 0 16H18" fill="none" stroke="url(#spg)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle class="d-top" cx="46" cy="18" r="4.6" fill="#0A0F1F" stroke="url(#spg)" stroke-width="3.2"/>
+          <circle class="d-bot" cx="18" cy="50" r="4.6" fill="#0A0F1F" stroke="url(#spg)" stroke-width="3.2"/>
+        </svg>
+      </div>
+      <div class="mark-state">Idea &rarr; Build &rarr; Live</div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="proof">
+        <div class="big">20 minutes</div>
+        <p>Veteran entrepreneurs who had never built software left our first class with a working app.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="knows">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">The method</div>
+        <h2>The Five Knows</h2>
+        <p>Know it before you build it. Answer each one in order, then hand the whole page to Claude. That page is your build prompt.</p>
+      </div>
+      <div class="knows">
+        <div class="know"><span class="n">1</span><h3>What it does</h3><p>The purpose, in one sentence.</p></div>
+        <div class="know"><span class="n">2</span><h3>What it can do</h3><p>The real jobs it does, added one at a time.</p></div>
+        <div class="know"><span class="n">3</span><h3>What it shouldn&rsquo;t do</h3><p>Tell the truth. Show sources. Nothing illegal. Real numbers only.</p></div>
+        <div class="know hl"><span class="n">4</span><h3>How it looks and feels</h3><p>See it first: make the look in ChatGPT, then build it in Claude. The build starts here.</p></div>
+        <div class="know"><span class="n">5</span><h3>When it&rsquo;s done</h3><p>One test that proves it works, and the loop that makes it better.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">How it teaches</div>
+        <h2>Then run it again</h2>
+        <p>Put it in your hand. Use it. Come back. Each lap adds one new piece, learned because your build needed it. It gets more capable every lap, and never feels that way.</p>
+      </div>
+      <div class="two">
+        <div class="panel">
+          <div class="col-title now">The ladder</div>
+          <ul class="ledger">
+            <li><span><b>Foundations.</b> A working app at a link. Context, GitHub, going live, spend caps.</span></li>
+            <li><span><b>Builder.</b> An assistant that knows your files, mail and calendar.</span></li>
+            <li><span><b>Operator.</b> One command center for your business: traffic, tasks, issues.</span></li>
+            <li><span><b>Advanced.</b> Apps that are guarded, gated and cost-controlled.</span></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <div class="col-title not">How we teach</div>
+          <ul class="ledger not">
+            <li><span><b>One question at a time,</b> with two clear choices. Never a blank page.</span></li>
+            <li><span><b>Short answers.</b> Plain words first; the jargon gets named after you&rsquo;ve built the thing.</span></li>
+            <li><span><b>Whole, then parts.</b> Hold the working app first. Break it down after.</span></li>
+            <li><span><b>Think in systems.</b> Loops, links and dependencies, drawn on one page.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Coming soon</div>
+        <h2>The SmartPlay Build Engine</h2>
+        <p>The Five Knows as one guided panel. It does the work in plain view, explains why, and shows a live preview, then your real running app. Nobody skips steps, so everybody learns.</p>
+      </div>
+      <div class="tagline"><span class="chip">In the lab</span><span style="color:var(--silver-dim);font-size:.88rem">Foundations will be free.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">For veterans</div>
+        <h2>Built by a veteran, for veterans first</h2>
+      </div>
+      <div class="why">
+        <div class="panel"><h3>A free working-app session</h3><p>Leave with something real you can use.</p></div>
+        <div class="panel"><h3>Lifetime materials</h3><p>Every lesson and workbook, for good.</p></div>
+        <div class="panel"><h3>Partner and sponsored seats</h3><p>Seats through veteran programs, and seats funded by every custom build we deliver.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap cta">
+      <h2>What do you want it to do?</h2>
+      <p>That&rsquo;s Know 1, and it&rsquo;s the start of your first build. Get the workbook, or bring us your idea and we&rsquo;ll build it with you.</p>
+      <div class="row" style="justify-content:center;display:flex;flex-wrap:wrap;gap:.7rem">
+        <a class="btn primary" href="/downloads/five-knows-workbook.pdf" download>Get the free workbook &rarr;</a>
+        <a class="btn ghost" href="/#build">Build with us</a>
+        <a class="btn ghost" href="mailto:tim@smartplaycaddie.com?subject=Learning%20System%20class">Bring a class</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;align-items:center">
+    <div><span class="wordmark" style="font-size:.9rem">SMARTPLAY <b>AI</b> LLC</span><p style="margin-top:.7rem"><span class="vet"><svg viewBox="0 0 190 100" width="24" height="13" role="img" aria-label="United States flag" style="flex:none;border-radius:2px"><rect width="190" height="100" fill="#FFFFFF"/><rect y="0.0" width="190" height="7.7" fill="#B22234"/><rect y="15.4" width="190" height="7.7" fill="#B22234"/><rect y="30.8" width="190" height="7.7" fill="#B22234"/><rect y="46.2" width="190" height="7.7" fill="#B22234"/><rect y="61.5" width="190" height="7.7" fill="#B22234"/><rect y="76.9" width="190" height="7.7" fill="#B22234"/><rect y="92.3" width="190" height="7.7" fill="#B22234"/><rect width="76" height="53.8" fill="#3C3B6E"/><circle cx="6.3" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="48.6" r="2" fill="#FFFFFF"/></svg>Veteran Owned and Developed</span></p></div>
+    <div><a href="/">smartplayapps.com</a> &middot; <a href="/#products">All products</a> &middot; <a href="/learn">Learn</a> &middot; <a href="/media">Media</a></div>
+  </div>
+</footer>
+</html>
