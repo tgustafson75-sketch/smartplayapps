@@ -213,6 +213,8 @@ a{color:inherit}
 .toc a:hover,.toc a:focus-visible{color:var(--off)}
 .toc a.on{color:var(--off);border-color:var(--rule);background:var(--surface-2)}
 .slide{scroll-margin-top:4rem}
+/* the hidden attribute must win over .slide{display:flex} (Traction stays out until real numbers exist) */
+.slide[hidden]{display:none!important}
 .progress{position:fixed;left:0;top:0;height:2px;width:0;background:linear-gradient(90deg,var(--cobalt),var(--violet));z-index:10}
 .srcs{margin:0;padding-left:1.1rem;color:var(--silver-dim);font-size:.82rem;line-height:1.55}
 .srcs a{color:var(--silver);text-underline-offset:3px}
