@@ -80,6 +80,15 @@ module.exports = async function contact(req, res) {
       body: JSON.stringify({ topic, product, name, email, message: message || null, ip_hash: ipHash }),
     });
     if (!ins.ok) throw new Error(`insert ${ins.status}`);
+    // Email Tim (dormant until POSTMARK_SERVER_TOKEN is set). Never fails the request: it's already saved.
+    if (process.env.POSTMARK_SERVER_TOKEN) {
+      const subject = `smartplayapps.com: ${topic}${product ? `: ${product}` : ''} from ${name}`;
+      await fetch('https://api.postmarkapp.com/email', {
+        method: 'POST',
+        headers: { Accept: 'application/json', 'Content-Type': 'application/json', 'X-Postmark-Server-Token': process.env.POSTMARK_SERVER_TOKEN },
+        body: JSON.stringify({ From: 'SmartPlay AI <no-reply@smartplayapps.com>', To: process.env.OWNER_EMAIL || 'tim@smartplayapps.com', ReplyTo: email, Subject: subject.slice(0, 200), TextBody: `${name} <${email}>\nTopic: ${topic}${product ? `\nProduct: ${product}` : ''}\n\n${message || '(no message)'}\n\nAll requests: https://build.smartplayapps.com/owner`, MessageStream: 'outbound' }),
+      }).catch((e) => console.error('[contact] notify', e && e.message));
+    }
     return send(res, 200, product ? `Thanks. Your ${product} beta request is in; we will reply by email.` : 'Thanks. We will reply by email.');
   } catch (e) {
     console.error('[contact]', e && e.message);
