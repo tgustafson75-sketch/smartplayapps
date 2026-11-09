@@ -61,6 +61,17 @@
 </script>
 <link rel="stylesheet" href="/site.css">
 <style>
+.steps48{list-style:none;margin:0 0 1.6rem;padding:0;display:grid;gap:.8rem}@media(min-width:860px){.steps48{grid-template-columns:repeat(3,1fr)}}
+.steps48 li{border:1px solid var(--rule-soft,#161C39);border-radius:12px;padding:1.1rem 1.2rem;background:var(--surface,#0D1327);color:var(--silver,#D1D5DB)}
+.steps48 b{display:block;color:var(--off,#FAFAFC);font-weight:600;margin-bottom:.3rem}
+.g48{display:grid;gap:1rem;grid-template-columns:1fr}@media(min-width:660px){.g48{grid-template-columns:1fr 1fr}}
+.g48 figure{margin:0;border:1px solid var(--rule-soft,#161C39);border-radius:12px;overflow:hidden;background:var(--navy,#0A0F1F)}
+.g48 img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;background:#070B17}
+.g48 figcaption{padding:.7rem 1rem;font-size:.88rem;color:var(--silver,#D1D5DB)}
+.note48{color:var(--silver-dim,#8891A8);font-size:.85rem;margin-top:1rem}
+</style>
+
+<style>
 .soon{display:inline-block;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--violet-hi,#A78BFA);border:1px solid var(--violet-hi,#A78BFA);border-radius:100px;padding:.3rem .8rem;margin-bottom:1rem}
 .paths{display:grid;gap:1rem}@media(min-width:760px){.paths{grid-template-columns:1fr 1fr}}
 .path{border:1px solid var(--rule-soft,#161C39);border-radius:12px;padding:1.6rem;background:var(--surface,#0D1327);display:flex;flex-direction:column;gap:.6rem}
@@ -167,6 +178,25 @@ details.faq{border-top:1px solid var(--rule-soft,#161C39);padding-block:1rem}det
       </ol>
       <p class="note">Apple requires the final submit to come from your own developer account. We prepare everything and walk you through that step.</p>
       <div class="buttons"><a class="btn ghost" href="#waitlist" data-topic="Store waitlist" data-msg="I want help getting my app into the App Store or Google Play.">Ask about submission help &rarr;</a></div>
+    </div>
+  </section>
+
+  <section id="48h">
+    <div class="wrap">
+      <div class="head"><div class="eyebrow">See it in 48 hours</div><h2>Tell us what you need. See it in 48 hours.</h2><p>You don&rsquo;t have to imagine it. Describe your app, game or tool, and we show you what it looks like, then build it with you. Every stage is labeled for what it is.</p></div>
+      <ol class="steps48">
+        <li><b>48 hours: the concept.</b> Screens that show how your idea looks and works.</li>
+        <li><b>About a week: a prototype.</b> A clickable version you can try and change.</li>
+        <li><b>Then: a working beta.</b> Built for real, priced as a custom build, and yours.</li>
+      </ol>
+      <div class="g48">
+        <figure><img src="/img/concept-game-realmforge.webp" alt="Concept screen: a fantasy RPG creator with hero builder, party and AI quests" width="960" height="720" loading="lazy"><figcaption>Fantasy RPG creator</figcaption></figure>
+        <figure><img src="/img/concept-game-adventureforge.webp" alt="Concept screen: an adventure builder with character, world and storytelling tools" width="960" height="720" loading="lazy"><figcaption>Story and world builder</figcaption></figure>
+        <figure><img src="/img/concept-game-aetherforge.webp" alt="Concept screen: a role-playing game home screen with character and creature creators" width="960" height="640" loading="lazy"><figcaption>Role-playing game</figcaption></figure>
+        <figure><img src="/img/concept-game-battlemode.webp" alt="Concept screen: Battle Mode home with hero creator, AI world builder and gear lab" width="960" height="540" loading="lazy"><figcaption>Battle Mode</figcaption></figure>
+      </div>
+      <p class="note48">Concept screens made for the ideas people brought us. Names and figures in them are illustrative.</p>
+      <div class="buttons"><a class="btn primary" href="#waitlist" data-topic="Build with us" data-msg="I'd like to see my idea in 48 hours. Here's what it should do:">Show me my idea &rarr;</a></div>
     </div>
   </section>
 
