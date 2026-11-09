@@ -3,7 +3,7 @@
 // them in the Build Engine owner view. Guards: honeypot field, size limits, 5 requests per IP per hour.
 const crypto = require('crypto');
 
-const TOPICS = ['Beta access', 'Build with us', 'Veteran seat', 'Bring a class', 'Investors', 'Other'];
+const TOPICS = ['Beta access', 'Build with us', 'Veteran seat', 'Bring a class', 'Investors', 'Store waitlist', 'Other'];
 // /build form extras, folded into the message so the table needs no new columns.
 const SERVICES = ['Custom app', 'AI in our workflow', 'Consulting', 'Implementation & support', 'Not sure yet'];
 const DEALS = ['Client owns the IP', 'Shared IP', 'Flat fee', 'Not sure yet'];

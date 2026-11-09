@@ -216,6 +216,12 @@ a{color:inherit}
 /* the hidden attribute must win over .slide{display:flex} (Traction stays out until real numbers exist) */
 .slide[hidden]{display:none!important}
 .progress{position:fixed;left:0;top:0;height:2px;width:0;background:linear-gradient(90deg,var(--cobalt),var(--violet));z-index:10}
+.lines{flex:1;display:grid;gap:1rem;grid-template-columns:1fr}
+@media(min-width:620px){.lines{grid-template-columns:1fr 1fr}}@media(min-width:900px){.lines{grid-template-columns:repeat(3,1fr)}}
+.line{background:var(--navy);border:1px solid var(--rule-soft);border-radius:8px;padding:.8rem;display:flex;flex-direction:column;gap:.35rem;min-width:0}
+.line img{width:100%;height:120px;object-fit:cover;object-position:top;border-radius:6px;border:1px solid var(--rule-soft);display:block;margin-bottom:.25rem}
+.line h3{font-size:.95rem;font-weight:600}
+.line p{color:var(--silver-dim);font-size:.85rem;line-height:1.4}
 .srcs{margin:0;padding-left:1.1rem;color:var(--silver-dim);font-size:.82rem;line-height:1.55}
 .srcs a{color:var(--silver);text-underline-offset:3px}
 
@@ -251,6 +257,7 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
   .g2{grid-template-columns:1fr 1fr}.g3,.triad{grid-template-columns:repeat(3,1fr)}
   .row{grid-template-columns:2.4rem 11rem 1fr;align-items:baseline}
   .cover .mark{display:block}
+  .lines{grid-template-columns:repeat(3,1fr);gap:12px}.line{padding:10px;gap:4px}.line img{height:112px}.line h3{font-size:19px}.line p{font-size:15px}
 }
 </style>
 
@@ -281,7 +288,7 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
   </nav>
 </div>
 
-<nav class="toc noprint" aria-label="Slides"><div class="wrap"><a href="#s1">Overview</a><a href="#s2">Problem</a><a href="#s3">What we built</a><a href="#s4">Caddie</a><a href="#s5">Market</a><a href="#s6">Engine</a><a href="#s7">Evidence</a><a href="#st" hidden>Traction</a><a href="#s8">Business model</a><a href="#sv">Venues</a><a href="#s9">Why we win</a><a href="#s10">Roadmap</a><a href="#s11">Team</a><a href="#s12">The ask</a><a href="#s13">Sources</a></div></nav>
+<nav class="toc noprint" aria-label="Slides"><div class="wrap"><a href="#s1">Overview</a><a href="#s2">Problem</a><a href="#s3">What we built</a><a href="#s4">Caddie</a><a href="#s5">Market</a><a href="#s6">Engine</a><a href="#s7">Evidence</a><a href="#st" hidden>Traction</a><a href="#s8">Business model</a><a href="#sm">Positioning</a><a href="#ss">Store</a><a href="#sl">Build lines</a><a href="#sv">Venues</a><a href="#s9">Why we win</a><a href="#s10">Roadmap</a><a href="#s11">Team</a><a href="#s12">The ask</a><a href="#s13">Sources</a></div></nav>
 <div class="progress" aria-hidden="true"></div>
 <main class="wrap">
   <div class="intro" style="margin:0 0 1.2rem"><h1 style="font-family:Inter;font-weight:500;font-size:1rem;color:var(--silver);margin:0">SmartPlay AI investor &amp; strategic partner overview: AI golf caddie and golf simulator AI</h1><p style="color:var(--silver-dim);font-size:.9rem;margin-top:.2rem">November 2026 · <a href="/contact?topic=Investors">tim@smartplayapps.com</a> · <a href="/SmartPlay-AI-Investor-Deck.pdf" download>Download the deck (PDF)</a></p></div>
@@ -439,9 +446,51 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
     </div>
   </section>
 
+  <!-- positioning -->
+  <section id="sm" class="slide" aria-label="Positioning">
+    <div class="eyebrow">Positioning<span class="num">09</span></div>
+    <h2>You don&rsquo;t need big tech. You need tech built for you.</h2>
+    <p class="sub">We build apps, software, tech and business solutions, and we take the confusion out of making AI and tech work for you. Big platforms sell one size to everyone. We build to fit, or teach you to.</p>
+    <div class="body g2">
+      <div class="box"><span class="tag live">Path one</span><h3>Build your own</h3><p>The Build Engine and the Learning System teach anyone to build a working app with AI, step by step. What they build can launch on our store.</p></div>
+      <div class="box"><span class="tag live">Path two</span><h3>We build it for you</h3><p>Exactly what a business needs, built around how it already works, with our engines inside and support after launch. The client&rsquo;s app is the client&rsquo;s app.</p></div>
+    </div>
+  </section>
+
+  <!-- store and marketplace -->
+  <section id="ss" class="slide" aria-label="Store and marketplace">
+    <div class="eyebrow">Platform · in planning<span class="num">10</span></div>
+    <h2>One store, two shelves</h2>
+    <div class="body g2">
+      <div class="box"><span class="tag next">Our apps</span><h3>SmartPlay&rsquo;s own catalog</h3><p>Subscriptions, one Pro plan across golf, and one-time unlocks, with checkout on smartplayapps.com alongside the app stores.</p></div>
+      <div class="box"><span class="tag next">Builder marketplace</span><h3>Apps our builders make</h3><p>Builders sell what they build on our store. We take a percentage of each sale, lower for builders on higher launch tiers. Payouts and tax forms run through Stripe Connect.</p></div>
+    </div>
+    <div class="body g3">
+      <div class="box"><h3>Launch Packs</h3><p>Starter, Launch, Pro and Elite: security review, listing, SEO, website, app store submission, promo video and outreach. Elite adds early access to new SmartPlay features.</p></div>
+      <div class="box"><h3>App store submission</h3><p>Accounts, listings, review and rejections handled for builders, the way we shipped Caddie. The builder&rsquo;s own account makes the final submit.</p></div>
+      <div class="box"><h3>Every app reviewed</h3><p>Nothing is listed until it passes our security gate, because every app on the shelf carries the SmartPlay name.</p></div>
+    </div>
+    <p class="foot">PREVIEW AT SMARTPLAYAPPS.COM/STORE · THE STORE IS NOT OPEN YET</p>
+  </section>
+
+  <!-- build lines -->
+  <section id="sl" class="slide" aria-label="Custom build lines">
+    <div class="eyebrow">Custom build lines<span class="num">11</span></div>
+    <h2>Same engines, more industries</h2>
+    <div class="lines">
+      <div class="line"><img src="/img/concept-healthcare.webp" alt="Imaging center operations dashboard concept with a no patient data badge" width="960" height="720"><span class="tag next">Coming soon</span><h3>Healthcare operations</h3><p>Imaging center dashboards. Operations data only, no patient data.</p></div>
+      <div class="line"><img src="/img/concept-nonprofit.webp" alt="Veteran resource finder and program intake concept with a privacy banner" width="960" height="720"><span class="tag next">Coming soon</span><h3>Veteran &amp; nonprofit</h3><p>Resource finders and program intake, consent first.</p></div>
+      <div class="line"><img src="/img/manage.webp" alt="SmartManage assistant screen" width="600" height="750"><span class="tag live">Beta</span><h3>Business management</h3><p>Command centers built on SmartManage.</p></div>
+      <div class="line"><img src="/img/gridiron.webp" alt="Gridiron Life football career game menu" width="600" height="750"><span class="tag live">3 built</span><h3>Games</h3><p>Worlds, characters and careers, built for clients.</p></div>
+      <div class="line"><img src="/img/concept-real-estate.webp" alt="Real estate deal analyzer concept" width="960" height="720"><span class="tag next">Coming soon</span><h3>Real estate tools</h3><p>Deal analyzers and property dashboards.</p></div>
+      <div class="line"><img src="/img/concept-investing.webp" alt="Investing strategy builder concept; figures are illustrative" width="960" height="720"><span class="tag next">Coming soon</span><h3>Investment strategy UI</h3><p>Users set their own rules and test them.</p></div>
+    </div>
+    <p class="foot">HEALTHCARE, NONPROFIT, REAL ESTATE AND INVESTING SCREENS ARE CONCEPTS; FIGURES IN THEM ARE ILLUSTRATIVE</p>
+  </section>
+
   <!-- venues -->
   <section id="sv" class="slide" aria-label="Venues">
-    <div class="eyebrow">Venues<span class="num">09</span></div>
+    <div class="eyebrow">Venues<span class="num">12</span></div>
     <h2>From the indoor muni to the course</h2>
     <p class="sub">An indoor muni is an affordable, walk-in simulator venue: the public course of indoor golf. It is where new and returning golfers start, and SmartBay AI runs the lessons there around the clock, with no staff needed in the bay.</p>
     <div class="body g3">
@@ -454,7 +503,7 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
 
   <!-- 9 why we win -->
   <section id="s9" class="slide" aria-label="Why we win">
-    <div class="eyebrow">Why we win<span class="num">10</span></div>
+    <div class="eyebrow">Why we win<span class="num">13</span></div>
     <h2>Built to be trusted on the shot that matters</h2>
     <div class="body g3">
       <div class="box"><h3>No hardware</h3><p>There is nothing to buy, charge or screw into a grip, so a new player can start for free.</p></div>
@@ -468,18 +517,18 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
 
   <!-- 10 roadmap -->
   <section id="s10" class="slide" aria-label="Roadmap">
-    <div class="eyebrow">Roadmap<span class="num">11</span></div>
+    <div class="eyebrow">Roadmap<span class="num">14</span></div>
     <h2>Deepen golf first, then extend the engine</h2>
     <div class="body g3">
       <div class="box"><span class="tag live">Now</span><h3>Golf triad</h3><ul><li>Caddie live on both stores</li><li>SmartBay AI running at a partner facility</li><li>SmartPlay Golf live in the browser</li><li>Build Engine live</li></ul></div>
-      <div class="box"><span class="tag next">Next 6–12 months</span><h3>Scale golf</h3><ul><li>Paid SmartBay AI facility pilots</li><li>Build Engine paid tiers</li><li>One Pro subscription across golf</li><li>Multiplayer rounds</li><li>Japanese localization</li></ul></div>
-      <div class="box"><span class="tag">12–24 months</span><h3>Platform</h3><ul><li>Indoor golf venues with real estate partners</li><li>Lip-synced caddie avatars and smart glasses</li><li>Fitness, motion and assistant products on the same engine</li></ul></div>
+      <div class="box"><span class="tag next">Next 6–12 months</span><h3>Scale golf</h3><ul><li>Paid SmartBay AI facility pilots</li><li>Build Engine paid tiers</li><li>One Pro subscription across golf</li><li>Store preview, then checkout on smartplayapps.com</li><li>Multiplayer rounds</li><li>Japanese localization</li></ul></div>
+      <div class="box"><span class="tag">12–24 months</span><h3>Platform</h3><ul><li>Indoor golf venues with real estate partners</li><li>Lip-synced caddie avatars and smart glasses</li><li>Builder marketplace and Launch Packs</li><li>Custom build lines: healthcare operations, nonprofits, games</li><li>Fitness, motion and assistant products on the same engine</li></ul></div>
     </div>
   </section>
 
   <!-- 11 founder -->
   <section id="s11" class="slide" aria-label="Founder">
-    <div class="eyebrow">Founder &amp; team<span class="num">12</span></div>
+    <div class="eyebrow">Founder &amp; team<span class="num">15</span></div>
     <h2>Built by an operator, not a lab</h2>
     <p class="vet"><svg viewBox="0 0 190 100" width="24" height="13" role="img" aria-label="United States flag" style="flex:none;border-radius:2px"><rect width="190" height="100" fill="#FFFFFF"/><rect y="0.0" width="190" height="7.7" fill="#B22234"/><rect y="15.4" width="190" height="7.7" fill="#B22234"/><rect y="30.8" width="190" height="7.7" fill="#B22234"/><rect y="46.2" width="190" height="7.7" fill="#B22234"/><rect y="61.5" width="190" height="7.7" fill="#B22234"/><rect y="76.9" width="190" height="7.7" fill="#B22234"/><rect y="92.3" width="190" height="7.7" fill="#B22234"/><rect width="76" height="53.8" fill="#3C3B6E"/><circle cx="6.3" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="48.6" r="2" fill="#FFFFFF"/></svg>Veteran Owned and Developed</p>
     <div class="body g3">
@@ -492,10 +541,10 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
 
   <!-- 12 ask -->
   <section id="s12" class="slide ask" aria-label="The ask">
-    <div class="eyebrow">The ask<span class="num">13</span></div>
+    <div class="eyebrow">The ask<span class="num">16</span></div>
     <h2>Who we want to talk to</h2>
     <div class="body g3">
-      <div class="box"><h3>Investors</h3><p>We are raising a significant round to take SmartPlay from a live product to scale. It funds paid SmartBay AI facility pilots, user acquisition for Caddie, the Build Engine launch, and our first venue.</p></div>
+      <div class="box"><h3>Investors</h3><p>We are raising a significant round to take SmartPlay from a live product to scale. It funds paid SmartBay AI facility pilots, user acquisition for Caddie, the Build Engine launch, the store and builder marketplace, and our first venue.</p></div>
       <div class="box"><h3>Venues, facilities &amp; real estate</h3><p>Indoor golf venues, simulator operators and teaching pros who want AI lessons in their bays, and property owners with empty retail space or a struggling course.</p></div>
       <div class="box"><h3>Technology partners</h3><p>Simulator and launch monitor makers, wearable and smart-glasses platforms, and course data providers who want to build on the same stack.</p></div>
     </div>
@@ -508,7 +557,7 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
 
   <!-- 13 sources -->
   <section id="s13" class="slide" aria-label="Sources">
-    <div class="eyebrow">Sources<span class="num">14</span></div>
+    <div class="eyebrow">Sources<span class="num">17</span></div>
     <h2>Sources and notes</h2>
     <ol class="srcs">
       <li>US golf participation for 2025: 48.1M total participants, and more than 29M on-course golfers. National Golf Foundation, 2026 Graffis Report, as reported by <a href="https://clubandresortbusiness.com/ngfs-graffis-report-shows-golf-participation-surpassed-29m-for-eighth-consecutive-year-of-growth/">Club + Resort Business</a>.</li>
@@ -524,7 +573,7 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
 <footer>
   <div class="wrap" style="display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between">
     <div><span class="wordmark" style="font-size:.9rem">SMARTPLAY <b>AI</b> LLC</span><p class="vet" style="margin-top:.7rem"><svg viewBox="0 0 190 100" width="24" height="13" role="img" aria-label="United States flag" style="flex:none;border-radius:2px"><rect width="190" height="100" fill="#FFFFFF"/><rect y="0.0" width="190" height="7.7" fill="#B22234"/><rect y="15.4" width="190" height="7.7" fill="#B22234"/><rect y="30.8" width="190" height="7.7" fill="#B22234"/><rect y="46.2" width="190" height="7.7" fill="#B22234"/><rect y="61.5" width="190" height="7.7" fill="#B22234"/><rect y="76.9" width="190" height="7.7" fill="#B22234"/><rect y="92.3" width="190" height="7.7" fill="#B22234"/><rect width="76" height="53.8" fill="#3C3B6E"/><circle cx="6.3" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="48.6" r="2" fill="#FFFFFF"/></svg>Veteran Owned and Developed</p><div style="margin-top:.6rem">Menifee, California · <a href="/contact?topic=Investors">tim@smartplayapps.com</a></div></div>
-    <div><a href="/">smartplayapps.com</a> · <a href="/media">Media</a> · <a href="/SmartPlay-AI-Investor-Deck.pdf" download>Download deck (PDF)</a></div>
+    <div><a href="/">smartplayapps.com</a> · <a href="/store">Store preview</a> · <a href="/media">Media</a> · <a href="/SmartPlay-AI-Investor-Deck.pdf" download>Download deck (PDF)</a></div>
   </div>
 </footer>
 <script>
