@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SmartPump — AI strength coach | SmartPlay AI</title>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<meta name="description" content="SmartPump is a strength coach on your phone: a figure for every exercise, plans that adapt each session, and rep counting on recordings you start. Free forever with no ads. Veteran owned and developed.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#0A0F1F">
+<link rel="canonical" href="https://www.smartplayapps.com/smartpump">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SmartPlay AI">
+<meta property="og:title" content="SmartPump — AI strength coach">
+<meta property="og:description" content="A strength coach on your phone. Free forever, no ads. Pro is the coach that talks back.">
+<meta property="og:url" content="https://www.smartplayapps.com/smartpump">
+<meta property="og:image" content="https://www.smartplayapps.com/img/pump-logo.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@200;400;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+:root{
+  --navy:#0A0F1F;--indigo:#1A1F4D;--surface:#0D1327;--surface-2:#111838;
+  --rule:#1E254A;--rule-soft:#161C39;--cobalt:#2563FF;--cobalt-hi:#6B93FF;
+  --violet:#8B5CF6;--violet-hi:#A78BFA;--silver:#D1D5DB;--silver-dim:#8891A8;
+  --off:#FAFAFC;--pad:clamp(1rem,5vw,2.5rem);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--navy);color:var(--off);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:Sora,Inter,system-ui,sans-serif;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:var(--pad)}
+.wordmark{font-family:Sora;font-weight:200;letter-spacing:.22em;white-space:nowrap;font-size:.92rem}
+.wordmark b{font-weight:200;color:var(--cobalt)}
+.masthead{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.4rem}
+.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.brand svg{width:30px;height:30px;flex:none}
+.nav{display:flex;gap:1.2rem;align-items:center;font-size:.9rem;color:var(--silver)}
+.nav a{text-decoration:none}
+.nav .home{display:none}@media(min-width:640px){.nav .home{display:inline}}
+.btn{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;padding:.62rem 1.2rem;border-radius:100px;font-size:.88rem;font-weight:500;white-space:nowrap}
+.btn.primary{background:var(--cobalt);color:#fff}
+.btn.primary:hover,.btn.primary:focus-visible{background:#1D53E0}
+.btn.ghost{border:1px solid var(--rule);color:var(--off)}
+.btn.ghost:hover,.btn.ghost:focus-visible{border-color:var(--cobalt)}
+.eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver-dim);display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--cobalt);flex:none}
+.chip{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .55rem;border-radius:3px;border:1px solid var(--violet-hi);color:var(--violet-hi);white-space:nowrap}
+
+/* hero */
+.hero{display:grid;gap:2.5rem;align-items:center;padding-block:clamp(2rem,7vw,5rem)}
+@media(min-width:860px){.hero{grid-template-columns:1.1fr .9fr}}
+.hero h1{font-weight:600;font-size:clamp(2.6rem,8vw,4.6rem);letter-spacing:-.03em;line-height:1}
+.hero .lede{font-size:clamp(1.05rem,2.2vw,1.3rem);color:var(--silver);max-width:36ch;margin-top:1.1rem}
+.hero .row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.8rem;align-items:center}
+.hero .tagline{display:flex;gap:.6rem;align-items:center;margin-top:1.2rem;flex-wrap:wrap}
+.logo{width:min(80vw,380px);aspect-ratio:1;margin-inline:auto;display:block;border-radius:28px;border:1px solid var(--rule-soft)}
+section{padding-block:clamp(2.5rem,6vw,4.5rem);border-top:1px solid var(--rule-soft)}
+.head{display:flex;flex-direction:column;gap:.9rem;margin-bottom:2rem;max-width:62ch}
+.head h2{font-weight:600;font-size:clamp(1.6rem,3.6vw,2.4rem);letter-spacing:-.02em;line-height:1.15}
+.head p{color:var(--silver)}
+.two{display:grid;gap:1.2rem}
+@media(min-width:860px){.two{grid-template-columns:1fr 1fr}}
+.panel{background:var(--surface);border:1px solid var(--rule-soft);border-radius:12px;padding:clamp(1.2rem,3vw,1.8rem)}
+.col-title{font-family:Sora;font-weight:600;font-size:1rem;margin-bottom:1rem}
+.col-title.now{color:var(--cobalt-hi)}.col-title.not{color:var(--violet-hi)}
+.price{font-family:Sora;font-size:2rem;font-weight:600;margin-bottom:.3rem}
+.price small{font-size:.95rem;color:var(--silver-dim);font-weight:400}
+.ledger{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.85rem}
+.ledger li{display:flex;gap:.8rem;color:var(--silver);font-size:.95rem;line-height:1.5}
+.ledger li::before{content:"";width:6px;height:6px;margin-top:.55rem;flex:none;border-radius:50%;background:var(--cobalt)}
+.ledger.not li::before{background:var(--violet-hi)}
+.ledger b{color:var(--off);font-weight:500}
+.screens{display:grid;gap:1.2rem;grid-template-columns:1fr}
+@media(min-width:640px){.screens{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.screens{grid-template-columns:repeat(4,1fr)}}
+figure{margin:0;background:var(--surface);border:1px solid var(--rule-soft);border-radius:12px;padding:1rem;display:flex;flex-direction:column;gap:.8rem}
+figure img{width:100%;height:auto;border-radius:8px;display:block;max-width:300px;margin-inline:auto}
+figcaption{color:var(--silver-dim);font-size:.86rem}
+.feature{display:grid;gap:1.6rem;align-items:center}
+@media(min-width:860px){.feature{grid-template-columns:1fr 1fr}}
+.feature img{width:100%;max-width:460px;height:auto;border-radius:12px;border:1px solid var(--rule-soft);display:block;margin-inline:auto}
+.note{color:var(--silver-dim);font-size:.86rem;margin-top:1rem}
+.cta{text-align:center;display:flex;flex-direction:column;align-items:center;gap:1rem}
+.cta h2{font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);letter-spacing:-.02em}
+.cta p{color:var(--silver);max-width:52ch}
+.vet{display:inline-flex;align-items:center;gap:.45rem;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--silver);border:1px solid var(--rule);border-radius:100px;padding:.3rem .8rem}
+footer{border-top:1px solid var(--rule-soft);padding-block:2.4rem;color:var(--silver-dim);font-size:.86rem}
+footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--rule)}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SmartPump","applicationCategory":"HealthApplication","operatingSystem":"Android","description":"A strength coach on your phone. Free forever, no ads.","offers":[{"@type":"Offer","price":"0","priceCurrency":"USD","name":"Free"},{"@type":"Offer","price":"3.99","priceCurrency":"USD","name":"Pro, monthly"},{"@type":"Offer","price":"29.99","priceCurrency":"USD","name":"Pro, yearly"}],"publisher":{"@type":"Organization","name":"SmartPlay AI","url":"https://www.smartplayapps.com"}}</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="spg" x1="14" y1="10" x2="50" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#2563FF"/><stop offset="1" stop-color="#8B5CF6"/>
+  </linearGradient>
+  <filter id="dglow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs></svg>
+
+<div class="wrap masthead">
+  <a class="brand" href="/">
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M46 18H28a8 8 0 0 0 0 16h8a8 8 0 0 1 0 16H18" fill="none" stroke="url(#spg)" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="46" cy="18" r="4.6" fill="#0A0F1F" stroke="url(#spg)" stroke-width="3.2"/>
+      <circle cx="18" cy="50" r="4.6" fill="#0A0F1F" stroke="url(#spg)" stroke-width="3.2"/>
+    </svg>
+    <span class="wordmark">SMARTPLAY <b>AI</b></span>
+  </a>
+  <nav class="nav">
+    <a class="home" href="/#products">All products</a>
+    <a class="home" href="/store">Store</a>
+    <a class="btn primary" href="/contact?product=SmartPump">Request beta</a>
+  </nav>
+</div>
+
+<main>
+  <div class="wrap hero">
+    <div>
+      <div class="eyebrow">SmartPlay Motion Engine &middot; first app</div>
+      <h1 style="margin-top:1rem">SmartPump</h1>
+      <p class="lede">A strength coach on your phone. It plans each session from the last one, shows you every lift, and counts your reps from a set you film.</p>
+      <div class="tagline"><span class="chip">Beta</span><span style="color:var(--silver-dim);font-size:.88rem">Android &middot; free forever, no ads</span></div>
+      <div class="row">
+        <a class="btn primary" href="/contact?product=SmartPump">Request beta access &rarr;</a>
+        <a class="btn ghost" href="#pricing">Free and Pro</a>
+      </div>
+    </div>
+    <div><img class="logo" src="/img/pump-logo.webp" width="640" height="640" alt="SmartPump logo: an anatomical figure in a circle and square, drawn from many sports and lifts"></div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <video controls preload="none" playsinline poster="/media/v/smartpump-30s.jpg" src="/media/v/smartpump-30s.mp4" style="width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--rule-soft);display:block;background:#000" aria-label="SmartPump in 30 seconds"></video>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap feature">
+      <div class="head" style="margin-bottom:0">
+        <div class="eyebrow">See the lift</div>
+        <h2>A figure for every exercise</h2>
+        <p>All 64 exercises have a moving figure that shows one clean rep, with the working muscles lit up. The same joint angles that draw the figure are the ones your filmed set is checked against, so the picture and the grade can&rsquo;t disagree.</p>
+      </div>
+      <img src="/img/pump-figure.webp" width="692" height="532" loading="lazy" alt="SmartPump exercise card: a gold outline figure doing a bench press, chest glowing red">
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Inside the app</div>
+        <h2>Built for the gym floor</h2>
+        <p>Big targets, plain words, and voice when your hands are full. Every voice control has a button next to it.</p>
+      </div>
+      <div class="screens">
+        <figure><img src="/img/pump-welcome.webp" width="780" height="1688" loading="lazy" alt="SmartPump welcome screen with the logo and a Begin button"><figcaption>Start in one tap.</figcaption></figure>
+        <figure><img src="/img/pump-train.webp" width="780" height="1688" loading="lazy" alt="Session plan listing bench press, overhead press and barbell row with figure thumbnails and weights"><figcaption>Today&rsquo;s plan, set from your last session.</figcaption></figure>
+        <figure><img src="/img/pump-challenges.webp" width="780" height="1688" loading="lazy" alt="Iron challenges list: Golden Era Chest Blitz, Back Density Assault, Arm Annihilator"><figcaption>Classic routines, scaled to your bodyweight.</figcaption></figure>
+        <figure><img src="/img/pump-pro.webp" width="780" height="1688" loading="lazy" alt="SmartPump Pro screen listing voice coach, form read, gym scan, say your meal and workout debrief, with what stays free"><figcaption>Pro, and everything that stays free.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Tech for the people</div>
+        <h2>Free forever. Pro is the coach that talks back.</h2>
+        <p>No ads, ever. Pro only covers the features that cost us money to run, because each one calls an AI. Everything on your phone stays free.</p>
+      </div>
+      <div class="two">
+        <div class="panel">
+          <div class="col-title now">Free</div>
+          <div class="price">$0 <small>forever</small></div>
+          <ul class="ledger">
+            <li><span><b>Logging and history.</b> Unlimited routines, full history, charts.</span></li>
+            <li><span><b>All 64 exercises</b> with how-to figures.</span></li>
+            <li><span><b>Rep counting and form check</b> on sets you film, on your phone.</span></li>
+            <li><span><b>Challenges and plans.</b> Classic routines and a plan that adapts.</span></li>
+            <li><span><b>Heart rate and health connections.</b></span></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <div class="col-title not">Pro</div>
+          <div class="price">$3.99 <small>/ month &middot; or $29.99 / year</small></div>
+          <ul class="ledger not">
+            <li><span><b>Voice coach.</b> Ask anything mid-workout and hear the answer.</span></li>
+            <li><span><b>Form read.</b> Film a set and the coach watches it for you.</span></li>
+            <li><span><b>Gym scan.</b> Scan any gym and today&rsquo;s workout rebuilds around it.</span></li>
+            <li><span><b>Say your meal.</b> Say what you ate; the macros fill in.</span></li>
+            <li><span><b>Workout debrief.</b> A spoken recap and what to beat next time.</span></li>
+          </ul>
+          <p class="note">Try each Pro feature three times free. Veterans get 50% off.</p>
+        </div>
+      </div>
+      <p class="note">At launch, everything is open for 30 days, Pro included.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap cta">
+      <span class="chip">Beta</span>
+      <h2>Want to train with SmartPump?</h2>
+      <p>We&rsquo;re letting people in a few at a time on Android. Ask, and we&rsquo;ll send you a build.</p>
+      <a class="btn primary" href="/contact?product=SmartPump">Request beta access &rarr;</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;align-items:center">
+    <div><span class="wordmark" style="font-size:.9rem">SMARTPLAY <b>AI</b> LLC</span><p style="margin-top:.7rem"><span class="vet"><svg viewBox="0 0 190 100" width="24" height="13" role="img" aria-label="United States flag" style="flex:none;border-radius:2px"><rect width="190" height="100" fill="#FFFFFF"/><rect y="0.0" width="190" height="7.7" fill="#B22234"/><rect y="15.4" width="190" height="7.7" fill="#B22234"/><rect y="30.8" width="190" height="7.7" fill="#B22234"/><rect y="46.2" width="190" height="7.7" fill="#B22234"/><rect y="61.5" width="190" height="7.7" fill="#B22234"/><rect y="76.9" width="190" height="7.7" fill="#B22234"/><rect y="92.3" width="190" height="7.7" fill="#B22234"/><rect width="76" height="53.8" fill="#3C3B6E"/><circle cx="6.3" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="5.4" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="10.8" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="16.2" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="21.6" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="27.0" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="32.4" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="37.8" r="2" fill="#FFFFFF"/><circle cx="12.6" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="25.2" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="37.8" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="50.4" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="63.0" cy="43.2" r="2" fill="#FFFFFF"/><circle cx="6.3" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="18.9" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="31.5" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="44.1" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="56.7" cy="48.6" r="2" fill="#FFFFFF"/><circle cx="69.3" cy="48.6" r="2" fill="#FFFFFF"/></svg>Veteran Owned and Developed</span></p></div>
+    <div><a href="/">smartplayapps.com</a> &middot; <a href="/#products">All products</a> &middot; <a href="/store">Store</a></div>
+  </div>
+</footer>
+</html>
