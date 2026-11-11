@@ -230,4 +230,4 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
 .prose ul{padding-left:1.2rem}
 
 @media(max-width:700px){.hero-mark{display:none}.hero .wave{margin-top:1rem}}
-@media(max-width:440px){.nav .nav-store{display:none}}
+@media(max-width:440px){.masthead .cta{display:none}}
