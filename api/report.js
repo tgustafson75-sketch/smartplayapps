@@ -4,6 +4,13 @@ const { report } = require('../lib/selfheal.js');
 
 const KINDS = ['client_error', 'unhandled_rejection', 'user_report', 'health'];
 
+// Public, unauthenticated endpoint: a scripted flood could burn the Sentry quota, so cap it per instance.
+// Same window as SmartManage's /api/report (src/app/api/report/route.ts).
+const WINDOW_MS = 60_000;
+const MAX_PER_WINDOW = 20;
+let windowStart = 0;
+let inWindow = 0;
+
 function readBody(req) {
   return new Promise((resolve, reject) => {
     let size = 0;
@@ -29,6 +36,15 @@ module.exports = async function reportRoute(req, res) {
     res.setHeader('Allow', 'POST');
     res.statusCode = 405;
     return res.end('{"ok":false}');
+  }
+  const now = Date.now();
+  if (now - windowStart > WINDOW_MS) {
+    windowStart = now;
+    inWindow = 0;
+  }
+  if (++inWindow > MAX_PER_WINDOW) {
+    res.statusCode = 429;
+    return res.end('{"ok":false,"error":"slow down"}');
   }
   let d;
   try {
