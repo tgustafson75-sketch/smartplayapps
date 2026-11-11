@@ -1,0 +1,14 @@
+{
+  "clientDirs": ["js"],
+  "serverDirs": ["api", "lib"],
+  "authHelper": "verifyCaller",
+  "allow": [
+    { "rule": "unauth-endpoints", "file": "api/contact.js", "reason": "Public contact and waitlist form: honeypot, size caps and 5 requests per IP per hour; writes only to site_requests." },
+    { "rule": "unauth-endpoints", "file": "api/health.js", "reason": "Self-Heal startup check: names missing config, never values; no provider call, no user data." },
+    { "rule": "unauth-endpoints", "file": "api/report.js", "reason": "Self-Heal error and Report a problem relay: anonymous by design, 5 reports per IP per minute, scrubbed text only." },
+    { "rule": "unauth-endpoints", "file": "api/media-access.js", "reason": "Exchanges the shared media access code for a signed cookie; checks MEDIA_ACCESS_CODE itself." },
+    { "rule": "unauth-endpoints", "file": "api/media-private.js", "reason": "Re-checks the signed media cookie (lib/media-auth.js isAuthed) before serving any file; whitelist of fixed names." },
+    { "rule": "unauth-endpoints", "file": "lib/*.js", "reason": "Helpers, not handlers: media-auth and the Self-Heal relay are called by the routes above." }
+  ],
+  "mode": { "client-secrets": "block" }
+}
