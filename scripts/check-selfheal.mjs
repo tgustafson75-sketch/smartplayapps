@@ -1,4 +1,4 @@
-// Self-Heal v1 page check: every page served by this site must load /selfheal.js and carry the
+// Self-Heal v1 page check: every page served by this site must load /js/selfheal.js and carry the
 // "Report a problem" link in its footer. Pages = every .html file plus every api/*.js that renders
 // a <footer> (the private media listing). Exits 1 naming each failing page; exits 2 if it finds no
 // pages at all, so a moved folder cannot turn this green by checking nothing.
@@ -28,13 +28,13 @@ if (pages.length === 0) {
 }
 
 const problems = [];
-for (const required of ['selfheal.js', 'api/report.js', 'api/health.js', 'lib/selfheal.js']) {
+for (const required of ['js/selfheal.js', 'api/report.js', 'api/health.js', 'lib/selfheal.js']) {
   if (!existsSync(join(ROOT, required))) problems.push(`${required} is missing`);
 }
 for (const f of pages) {
   const s = readFileSync(f, 'utf8');
   const name = relative(ROOT, f);
-  if (!s.includes('<script defer src="/selfheal.js"></script>')) problems.push(`${name}: no /selfheal.js script`);
+  if (!s.includes('<script defer src="/js/selfheal.js"></script>')) problems.push(`${name}: no /js/selfheal.js script`);
   const f0 = s.indexOf('<footer');
   const footer = f0 === -1 ? '' : s.slice(f0, s.indexOf('</footer>', f0));
   if (!footer) problems.push(`${name}: no <footer>`);

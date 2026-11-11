@@ -74,7 +74,7 @@ figcaption{color:var(--silver-dim);font-size:.9rem}
 footer{border-top:1px solid var(--rule-soft);padding-block:2rem;color:var(--silver-dim);font-size:.86rem}
 footer a{color:var(--silver)}
 </style>
-<script defer src="/selfheal.js"></script>
+<script defer src="/js/selfheal.js"></script>
 </head>
 <body>
 <div class="wrap">
