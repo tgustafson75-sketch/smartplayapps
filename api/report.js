@@ -4,12 +4,19 @@ const { report } = require('../lib/selfheal.js');
 
 const KINDS = ['client_error', 'unhandled_rejection', 'user_report', 'health'];
 
-// Public, unauthenticated endpoint: a scripted flood could burn the Sentry quota, so cap it per instance.
-// Same window as SmartManage's /api/report (src/app/api/report/route.ts).
+// Public, unauthenticated endpoint: a scripted flood could burn the Sentry quota, so limit each client IP; the global cap is the Sentry DSN key rate limit.
 const WINDOW_MS = 60_000;
-const MAX_PER_WINDOW = 20;
-let windowStart = 0;
-let inWindow = 0;
+const MAX_PER_IP = 5;
+const seen = new Map(); // ip -> { start, count }
+
+function limited(req, now) {
+  const h = req.headers || {};
+  const ip = h['x-real-ip'] || String(h['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
+  for (const [k, v] of seen) if (now - v.start > WINDOW_MS) seen.delete(k);
+  const e = seen.get(ip) || { start: now, count: 0 };
+  seen.set(ip, e);
+  return ++e.count > MAX_PER_IP;
+}
 
 function readBody(req) {
   return new Promise((resolve, reject) => {
@@ -37,12 +44,7 @@ module.exports = async function reportRoute(req, res) {
     res.statusCode = 405;
     return res.end('{"ok":false}');
   }
-  const now = Date.now();
-  if (now - windowStart > WINDOW_MS) {
-    windowStart = now;
-    inWindow = 0;
-  }
-  if (++inWindow > MAX_PER_WINDOW) {
+  if (limited(req, Date.now())) {
     res.statusCode = 429;
     return res.end('{"ok":false,"error":"slow down"}');
   }
