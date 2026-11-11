@@ -74,6 +74,7 @@ figcaption{color:var(--silver-dim);font-size:.9rem}
 footer{border-top:1px solid var(--rule-soft);padding-block:2rem;color:var(--silver-dim);font-size:.86rem}
 footer a{color:var(--silver)}
 </style>
+<script defer src="/selfheal.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -108,7 +109,7 @@ footer a{color:var(--silver)}
 </section>
 
 <footer>
-  <div><a href="/media">Back to Media</a> · <a href="/">smartplayapps.com</a></div>
+  <div><a href="/media">Back to Media</a> · <a href="/">smartplayapps.com</a> · <a href="#" data-report-problem>Report a problem</a></div>
   <div style="margin-top:.5rem">SmartPlay AI · Veteran Owned and Developed</div>
 </footer>
 </div>
