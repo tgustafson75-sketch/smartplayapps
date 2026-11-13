@@ -12,6 +12,7 @@
     { "source": "/media/private/:file", "destination": "/api/media-private?f=:file" }
   ],
   "redirects": [
+    { "source": "/:path((?!img/smashlab/|smashlab|js/selfheal\\.js$|api/|investors$|contact$|robots\\.txt$|sitemap\\.xml$).+)", "has": [{ "type": "host", "value": "(www\\.)?playsmashlab\\.com" }], "destination": "/", "permanent": false },
     { "source": "/book", "destination": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1hYlLn6Bqfy79nvn4Y5kpmsCmsd-QCoWXe6oqDt9LhGvYOiLunR27eUWu5nWZ4zSQJ2cLduK4W", "permanent": false },
     { "source": "/cohort", "destination": "https://forms.gle/ouiKeLuPURhshB3F9", "permanent": false }
   ],
