@@ -4,8 +4,10 @@
 // The cookie check here mirrors lib/media-auth.js (HMAC-SHA256 over "media-access:<exp>").
 
 export const config = {
-  matcher: ['/private-media/:path*', '/media/private', '/media/private/:path*'],
+  matcher: ['/', '/private-media/:path*', '/media/private', '/media/private/:path*'],
 };
+
+export const SMASHLAB_HOST = /^(www\.)?playsmashlab\.com$/;
 
 const enc = new TextEncoder();
 
@@ -47,6 +49,15 @@ async function validCookie(header, secret) {
 
 export default async function middleware(request) {
   const url = new URL(request.url);
+
+  // playsmashlab.com shares this deployment: its home page is the SmashLab coming-soon page.
+  // (index.html is served before vercel.json rewrites, so this has to happen here.)
+  if (url.pathname === '/') {
+    if (SMASHLAB_HOST.test(url.hostname)) {
+      return new Response(null, { headers: { 'x-middleware-rewrite': new URL('/smashlab', request.url).toString() } });
+    }
+    return;
+  }
   const noStore = { 'Cache-Control': 'no-store' };
 
   if (url.pathname.startsWith('/private-media')) {
