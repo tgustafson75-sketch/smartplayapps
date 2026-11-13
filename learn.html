@@ -177,6 +177,7 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
 .knows{display:grid;gap:1rem;grid-template-columns:1fr}
 @media(min-width:640px){.knows{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:980px){.knows{grid-template-columns:repeat(5,1fr)}}
+@media(min-width:640px) and (max-width:979px){.knows > :last-child:nth-child(odd){grid-column:1/-1}}
 .know{background:var(--surface);border:1px solid var(--rule-soft);border-radius:12px;padding:1.2rem;display:flex;flex-direction:column;gap:.5rem}
 .know .n{font-family:Sora;font-weight:600;font-size:1.4rem;color:var(--cobalt-hi)}
 .know h3{font-size:1.02rem;font-weight:600}
