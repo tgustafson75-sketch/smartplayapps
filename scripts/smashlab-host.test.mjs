@@ -1,34 +1,35 @@
-// playsmashlab.com shares this deployment: its home page must be the SmashLab coming-soon page,
-// and smartplayapps.com's home page must be untouched. Run: node --test scripts/
+// playsmashlab.com shares this deployment: it has its own home, investors, contact, robots and
+// sitemap, every other path there goes home, and smartplayapps.com is untouched. Run: node --test scripts/*.test.mjs
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
-import middleware, { SMASHLAB_HOST } from '../middleware.js';
+import middleware, { SMASHLAB_HOST, SMASHLAB_PAGES } from '../middleware.js';
 
-const req = (u) => new Request(u);
+const rewriteOf = async (u) => {
+  const res = await middleware(new Request(u));
+  return res && new URL(res.headers.get('x-middleware-rewrite')).pathname;
+};
 
-test('playsmashlab.com home rewrites to the splash', async () => {
-  for (const h of ['https://playsmashlab.com/', 'https://www.playsmashlab.com/']) {
-    const res = await middleware(req(h));
-    assert.equal(new URL(res.headers.get('x-middleware-rewrite')).pathname, '/smashlab');
+test('playsmashlab.com paths rewrite to the SmashLab files, which exist', async () => {
+  for (const host of ['https://playsmashlab.com', 'https://www.playsmashlab.com']) {
+    for (const [path, target] of Object.entries(SMASHLAB_PAGES)) {
+      assert.equal(await rewriteOf(host + path), target);
+      const file = target.includes('.') ? target : target + '.html';
+      assert.ok(existsSync(new URL('..' + file, import.meta.url)), file);
+    }
   }
 });
 
-test('smartplayapps.com home is left alone', async () => {
-  assert.equal(await middleware(req('https://www.smartplayapps.com/')), undefined);
+test('smartplayapps.com pages are left alone', async () => {
+  for (const p of Object.keys(SMASHLAB_PAGES)) assert.equal(await middleware(new Request('https://www.smartplayapps.com' + p)), undefined);
   assert.equal(SMASHLAB_HOST.test('notplaysmashlab.com'), false);
 });
 
-test('the splash and its logo exist, and every other path on the domain goes home', () => {
-  assert.ok(existsSync(new URL('../smashlab.html', import.meta.url)));
-  assert.ok(existsSync(new URL('../img/smashlab/logo.svg', import.meta.url)));
+test('every other path on the domain goes home; the pages, assets and self-heal do not', () => {
   const cfg = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url)));
   const r = cfg.redirects.find((x) => x.has?.[0]?.value?.includes('playsmashlab'));
   const re = new RegExp('^/' + r.source.match(/\(\?!.*\)\.\+/)[0] + '$');
-  assert.ok(re.test('/store'));
-  assert.ok(!re.test('/smashlab'));
-  assert.ok(!re.test('/img/smashlab/logo.svg'));
-  assert.ok(!re.test('/js/selfheal.js'));
-  assert.ok(!re.test('/api/report'));
-  assert.ok(!re.test('/api/health'));
+  for (const p of ['/store', '/products', '/media', '/index.html']) assert.ok(re.test(p), p);
+  for (const p of ['/smashlab', '/smashlab-investors', '/smashlab.css', '/img/smashlab/logo.svg', '/js/selfheal.js', '/api/report', '/api/health', '/investors', '/contact', '/robots.txt', '/sitemap.xml'])
+    assert.ok(!re.test(p), p);
 });
