@@ -41,6 +41,7 @@ a{color:inherit}
 .brand{display:flex;align-items:center;gap:.8rem;text-decoration:none;min-height:44px}
 .brand svg{width:30px;height:30px;flex:none}
 .nav{display:flex;gap:1.2rem;align-items:center;font-size:.9rem;color:var(--silver)}
+@media(max-width:440px){.nav .btn{display:none}} /* same rule as the shared header (f15142f): the page body keeps this link */
 .nav a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 .nav .home{display:none}@media(min-width:640px){.nav .home{display:inline}}
 .btn{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;padding:.62rem 1.2rem;border-radius:100px;font-size:.88rem;font-weight:500;white-space:nowrap}
