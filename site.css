@@ -219,8 +219,8 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
 .company-teaser p{color:var(--silver);max-width:var(--measure)}
 .foot-links a{margin-right:.2rem}
 .form{display:grid;gap:1rem;max-width:640px}
-.form label{display:grid;gap:.35rem;font-size:.9rem;color:var(--silver)}
-.form input,.form select,.form textarea{background:var(--surface);border:1px solid var(--rule);border-radius:8px;color:var(--off);font:inherit;padding:.7rem .8rem}
+.form label{display:grid;gap:.35rem;font-size:.9rem;color:var(--silver);min-width:0}
+.form input,.form select,.form textarea{min-width:0;max-width:100%;background:var(--surface);border:1px solid var(--rule);border-radius:8px;color:var(--off);font:inherit;padding:.7rem .8rem}
 .form textarea{min-height:140px}
 .form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .form .msg{font-size:.92rem;color:var(--cobalt-hi)}

@@ -129,6 +129,7 @@ a{color:inherit}
 .brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}
 .brand svg{width:30px;height:30px;flex:none}
 .nav{display:flex;gap:1.4rem;align-items:center;font-size:.9rem;color:var(--silver)}
+@media(max-width:440px){.nav .btn{display:none}} /* same rule as the shared header (f15142f): the page body keeps this link */
 .nav a{text-decoration:none}
 .nav a:hover,.nav a:focus-visible{color:var(--cobalt-hi)}
 .nav .home{display:none}
