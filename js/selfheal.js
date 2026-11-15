@@ -55,10 +55,14 @@
       if (sessionStorage.getItem('sp_health')) return;
       sessionStorage.setItem('sp_health', '1');
     } catch (e) { /* storage blocked: check anyway */ }
-    fetch('/api/health', { cache: 'no-store' })
-      .then(function (r) { return r.ok ? r.json() : { ok: false, problems: ['health returned ' + r.status] }; })
-      .then(function (h) { if (!h.ok) post('health', (h.problems || []).join('; ')); },
-        function () { post('health', 'health check unreachable'); });
+    // A request that never gets an answer is the visitor's network, not the site: this page was
+    // just served by the same deployment. Only answers the server gives are reported
+    // (SMARTPLAYAPPS-WEB-2 was one visitor's dropped request, reported as an app failure).
+    fetch('/api/health', { cache: 'no-store' }).then(function (r) {
+      if (!r.ok) return post('health', 'health returned ' + r.status);
+      return r.json().then(function (h) { if (!h.ok) post('health', (h.problems || []).join('; ')); },
+        function () { post('health', 'health returned a body that is not JSON'); });
+    }, function () { /* no answer: the visitor's connection, not ours */ });
   }
   if (document.readyState === 'complete') healthCheck();
   else window.addEventListener('load', healthCheck);

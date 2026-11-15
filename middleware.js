@@ -4,7 +4,17 @@
 // The cookie check here mirrors lib/media-auth.js (HMAC-SHA256 over "media-access:<exp>").
 
 export const config = {
-  matcher: ['/private-media/:path*', '/media/private', '/media/private/:path*'],
+  matcher: ['/', '/investors', '/contact', '/robots.txt', '/sitemap.xml', '/private-media/:path*', '/media/private', '/media/private/:path*'],
+};
+
+export const SMASHLAB_HOST = /^(www\.)?playsmashlab\.com$/;
+// What playsmashlab.com serves at each of its public paths.
+export const SMASHLAB_PAGES = {
+  '/': '/smashlab',
+  '/investors': '/smashlab-investors',
+  '/contact': '/smashlab-contact',
+  '/robots.txt': '/smashlab-robots.txt',
+  '/sitemap.xml': '/smashlab-sitemap.xml',
 };
 
 const enc = new TextEncoder();
@@ -47,6 +57,15 @@ async function validCookie(header, secret) {
 
 export default async function middleware(request) {
   const url = new URL(request.url);
+
+  // playsmashlab.com shares this deployment and has its own pages at these paths.
+  // (Static files are served before vercel.json rewrites, so this has to happen here.)
+  if (url.pathname in SMASHLAB_PAGES) {
+    if (SMASHLAB_HOST.test(url.hostname)) {
+      return new Response(null, { headers: { 'x-middleware-rewrite': new URL(SMASHLAB_PAGES[url.pathname], request.url).toString() } });
+    }
+    return;
+  }
   const noStore = { 'Cache-Control': 'no-store' };
 
   if (url.pathname.startsWith('/private-media')) {
