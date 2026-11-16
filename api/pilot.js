@@ -2,6 +2,7 @@
 // Saves to pilot_requests (SmartPlay Academy project) with the server key and tells Tim the same way as
 // try codes (site_requests row for the owner view, Postmark when configured). Honeypot + 3 per email per day.
 const T = require('../lib/try.js');
+const { takeSlot } = require('../lib/rate-slot.js');
 
 const LABEL = {
   sporting_goods: 'Sporting goods store', sim_facility: 'Sim facility', batting_cage: 'Batting cage', soccer_training: 'Soccer training', other: 'Other',
@@ -27,9 +28,8 @@ module.exports = async function pilot(req, res) {
   const client = T.db();
   if (!client) return T.send(res, 503, { message: 'The form is down for a moment. Please email tim@smartplayapps.com.' });
   try {
-    const since = new Date(Date.now() - 24 * 3600 * 1000).toISOString();
-    const recent = await client.select('pilot_requests', `select=id&email=eq.${encodeURIComponent(v.email)}&created_at=gt.${encodeURIComponent(since)}`);
-    if (recent.length >= 3) return T.send(res, 429, { message: 'We have your request. Tim will reply soon.' });
+    // Atomic across instances (lib/rate-slot.js); a store error fails closed into the 503 below.
+    if (!(await takeSlot('pilot', v.email, 3, 86400))) return T.send(res, 429, { message: 'We have your request. Tim will reply soon.' });
     const ip_hash = T.ipHash(req);
     const ins = await client.insert('pilot_requests', { ...v, ip_hash });
     if (!ins.ok) throw new Error(`insert ${ins.status}`);

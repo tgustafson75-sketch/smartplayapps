@@ -13,7 +13,7 @@ const DEFENDER_DSN = 'https://106113ed0e3a496b4af44d2bd6ba2383@o4511297513717760
 const KINDS = ['sw_error', 'unhandled_rejection', 'page_error', 'message_error', 'startup_check', 'user_report'];
 const LEVELS = ['error', 'warning', 'info'];
 const EXTENSION_ORIGIN = /^chrome-extension:\/\/[a-p]{32}$/;
-const limited = makeLimiter(5);
+const limited = makeLimiter('defender-report', 5);
 
 // Defender's own scrub misses nothing on purpose; this one is the second lock: links, hosts, paths.
 function clean(text, max = 300) {
@@ -100,7 +100,7 @@ module.exports = async function defenderReport(req, res) {
     res.statusCode = 403;
     return res.end('{"ok":false}');
   }
-  if (limited(req, Date.now())) {
+  if (await limited(req, Date.now())) {
     res.statusCode = 429;
     return res.end('{"ok":false,"error":"slow down"}');
   }
