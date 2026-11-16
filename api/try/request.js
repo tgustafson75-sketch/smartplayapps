@@ -1,7 +1,8 @@
 // POST /api/try/request: a free 30-day try code for SmartMotion or SmartBay (shared system, lib/try.js).
-// Guards: honeypot field, 3 requests per email per day. The code is shown on screen; email delivery is not
+// Guards: honeypot field, 10 requests per IP per day, 3 per email per day (both atomic, lib/rate-slot.js). The code is shown on screen; email delivery is not
 // wired (no live transport on this site yet), so the response says so honestly.
 const T = require('../../lib/try.js');
+const { takeSlot } = require('../../lib/rate-slot.js');
 
 module.exports = async function tryRequest(req, res) {
   if (req.method !== 'POST') {
@@ -26,9 +27,10 @@ module.exports = async function tryRequest(req, res) {
     return T.send(res, 503, { message: 'Codes are down for a moment. Please try again later.' });
   }
   try {
-    const since = new Date(Date.now() - 24 * 3600 * 1000).toISOString();
-    const recent = await client.select('try_codes', `select=code&email=eq.${encodeURIComponent(v.email)}&created_at=gt.${encodeURIComponent(since)}`);
-    if (recent.length >= T.PER_EMAIL_PER_DAY) return T.send(res, 429, { message: 'That email has asked for 3 codes today. Please try again tomorrow.' });
+    // Atomic across instances (lib/rate-slot.js); a store error fails closed into the 503 below.
+    // Per IP first, so a run of fresh emails from one sender stops at 10 a day.
+    if (!(await takeSlot('try-ip', T.ipHash(req), T.PER_IP_PER_DAY, 86400))) return T.send(res, 429, { message: 'Too many code requests today. Please try again tomorrow.' });
+    if (!(await takeSlot('try', v.email, T.PER_EMAIL_PER_DAY, 86400))) return T.send(res, 429, { message: 'That email has asked for 3 codes today. Please try again tomorrow.' });
 
     let code = null;
     let row = null;

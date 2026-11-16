@@ -2,6 +2,7 @@
 // Saves to Supabase (SmartPlay Academy project, table site_requests) with the server key; the owner reads
 // them in the Build Engine owner view. Guards: honeypot field, size limits, 5 requests per IP per hour.
 const crypto = require('crypto');
+const { takeSlot } = require('../lib/rate-slot.js');
 
 const TOPICS = ['Beta access', 'Build with us', 'Veteran seat', 'Bring a class', 'Investors', 'Store waitlist', 'Other'];
 // /build form extras, folded into the message so the table needs no new columns.
@@ -71,9 +72,8 @@ module.exports = async function contact(req, res) {
   const ipHash = crypto.createHash('sha256').update(`smartplayapps:${ip}`).digest('hex');
   const headers = { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' };
   try {
-    const since = new Date(Date.now() - 3600 * 1000).toISOString();
-    const recent = await fetch(`${url}/rest/v1/site_requests?select=id&ip_hash=eq.${ipHash}&created_at=gt.${encodeURIComponent(since)}`, { headers });
-    if (recent.ok && (await recent.json()).length >= 5) return send(res, 429, 'We have your requests. Please wait an hour before sending more.');
+    // Atomic across instances (lib/rate-slot.js); a store error fails closed into the 503 below.
+    if (!(await takeSlot('contact', ipHash, 5, 3600))) return send(res, 429, 'We have your requests. Please wait an hour before sending more.');
     const ins = await fetch(`${url}/rest/v1/site_requests`, {
       method: 'POST',
       headers: { ...headers, Prefer: 'return=minimal' },

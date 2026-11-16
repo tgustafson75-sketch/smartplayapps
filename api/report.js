@@ -5,8 +5,8 @@ const { makeLimiter, readBody } = require('../lib/relay-http.js');
 
 const KINDS = ['client_error', 'unhandled_rejection', 'user_report', 'health'];
 
-// Public, unauthenticated endpoint: 5 reports per IP per minute (lib/relay-http.js).
-const limited = makeLimiter(5);
+// Public, unauthenticated endpoint: 5 reports per IP per minute, shared across instances (lib/relay-http.js).
+const limited = makeLimiter('report', 5);
 
 module.exports = async function reportRoute(req, res) {
   res.setHeader('Cache-Control', 'no-store');
@@ -16,7 +16,7 @@ module.exports = async function reportRoute(req, res) {
     res.statusCode = 405;
     return res.end('{"ok":false}');
   }
-  if (limited(req, Date.now())) {
+  if (await limited(req, Date.now())) {
     res.statusCode = 429;
     return res.end('{"ok":false,"error":"slow down"}');
   }
