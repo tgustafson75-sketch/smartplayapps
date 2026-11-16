@@ -15,6 +15,7 @@ let tables;
 let slots;
 let storeUp;
 let realFetch;
+let rpcCalls;
 
 function fakeFetch(url, init = {}) {
   const u = new URL(url);
@@ -22,6 +23,7 @@ function fakeFetch(url, init = {}) {
   if (!storeUp) return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
   const name = u.pathname.replace('/rest/v1/', '');
   if (name === 'rpc/take_rate_slot') {
+    rpcCalls += 1;
     const { p_bucket, p_max, p_window_seconds } = JSON.parse(init.body);
     const now = Date.now();
     const live = (slots.get(p_bucket) || []).filter((t) => now - t < p_window_seconds * 1000);
@@ -62,6 +64,7 @@ const count = (codes, c) => codes.filter((x) => x === c).length;
 beforeEach(() => {
   tables = {};
   slots = new Map();
+  rpcCalls = 0;
   storeUp = true;
   realFetch = globalThis.fetch;
   globalThis.fetch = fakeFetch;
@@ -144,4 +147,31 @@ test('store down: forms refuse with their existing 503 and save nothing; reports
   const codes = [];
   for (let i = 0; i < 7; i++) codes.push(await call(r, { kind: 'health', message: 'down', path: '/' }, { 'x-real-ip': '203.0.113.3' }));
   assert.deepEqual(codes, [200, 200, 200, 200, 200, 429, 429]);
+});
+
+test('an IP this instance already knows is over quota is refused without a store call', async () => {
+  const r = fresh('../api/report.js');
+  const body = { kind: 'client_error', message: 'flood', path: '/' };
+  const codes = [];
+  for (let i = 0; i < 9; i++) codes.push(await call(r, body, { 'x-real-ip': '203.0.113.4' }));
+  assert.deepEqual(codes, [200, 200, 200, 200, 200, 429, 429, 429, 429]);
+  assert.equal(rpcCalls, 5, 'only the 5 allowed reports reach the store');
+});
+
+test('a store "no" is remembered locally, so the next over-quota report skips the store', async () => {
+  const a = fresh('../api/report.js');
+  const b = fresh('../api/report.js');
+  const body = { kind: 'client_error', message: 'flood', path: '/' };
+  for (let i = 0; i < 5; i++) assert.equal(await call(a, body, { 'x-real-ip': '203.0.113.5' }), 200);
+  assert.equal(await call(b, body, { 'x-real-ip': '203.0.113.5' }), 429); // b learns from the store
+  const before = rpcCalls;
+  assert.equal(await call(b, body, { 'x-real-ip': '203.0.113.5' }), 429);
+  assert.equal(rpcCalls, before, 'b did not ask the store again');
+});
+
+test('10 concurrent pilot requests from one IP with different emails store at most 10 a day', async () => {
+  const h = fresh('../api/pilot.js');
+  const codes = await Promise.all(Array.from({ length: 14 }, (_, i) => call(h, { ...pilotBody, email: `shop${i}@example.com` }, { 'x-forwarded-for': '203.0.113.11' })));
+  assert.equal(count(codes, 200), 10, `statuses ${codes}`);
+  assert.equal(tables.pilot_requests.length, 10);
 });

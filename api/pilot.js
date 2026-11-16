@@ -1,6 +1,6 @@
 // POST /api/pilot: the free 90-day store / facility pilot request (smartplayapps.com/pilot).
 // Saves to pilot_requests (SmartPlay Academy project) with the server key and tells Tim the same way as
-// try codes (site_requests row for the owner view, Postmark when configured). Honeypot + 3 per email per day.
+// try codes (site_requests row for the owner view, Postmark when configured). Honeypot + 10 per IP and 3 per email per day (atomic, lib/rate-slot.js).
 const T = require('../lib/try.js');
 const { takeSlot } = require('../lib/rate-slot.js');
 
@@ -29,8 +29,9 @@ module.exports = async function pilot(req, res) {
   if (!client) return T.send(res, 503, { message: 'The form is down for a moment. Please email tim@smartplayapps.com.' });
   try {
     // Atomic across instances (lib/rate-slot.js); a store error fails closed into the 503 below.
-    if (!(await takeSlot('pilot', v.email, 3, 86400))) return T.send(res, 429, { message: 'We have your request. Tim will reply soon.' });
     const ip_hash = T.ipHash(req);
+    if (!(await takeSlot('pilot-ip', ip_hash, 10, 86400))) return T.send(res, 429, { message: 'We have your request. Tim will reply soon.' });
+    if (!(await takeSlot('pilot', v.email, 3, 86400))) return T.send(res, 429, { message: 'We have your request. Tim will reply soon.' });
     const ins = await client.insert('pilot_requests', { ...v, ip_hash });
     if (!ins.ok) throw new Error(`insert ${ins.status}`);
     await T.notifyOwner(client, {
