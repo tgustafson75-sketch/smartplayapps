@@ -89,6 +89,16 @@ test('10 concurrent try-code requests for one email mint exactly 3 codes', async
   assert.equal(tables.try_codes.length, 3);
 });
 
+test('15 concurrent try-code requests from one IP with 15 different emails mint exactly 10 codes', async () => {
+  const h = fresh('../api/try/request.js');
+  const codes = await Promise.all(Array.from({ length: 15 }, (_, i) => call(h, { ...tryBody, email: `pat${i}@example.com` }, { 'x-forwarded-for': '203.0.113.10' })));
+  assert.equal(count(codes, 200), 10, `statuses ${codes}`);
+  assert.equal(count(codes, 429), 5);
+  assert.equal(tables.try_codes.length, 10);
+  // A different sender is not caught by the first one's cap.
+  assert.equal(await call(h, { ...tryBody, email: 'other@example.com' }, { 'x-forwarded-for': '198.51.100.20' }), 200);
+});
+
 test('10 concurrent pilot requests for one email store exactly 3', async () => {
   const h = fresh('../api/pilot.js');
   const codes = await Promise.all(Array.from({ length: 10 }, () => call(h, pilotBody, { 'x-forwarded-for': '203.0.113.9' })));
