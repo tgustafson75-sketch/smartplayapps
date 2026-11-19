@@ -341,3 +341,12 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
    short Build label, and the narrowest phones tighten the nav, so no width scrolls sideways. */
 @media(max-width:840px){.brand .wordmark{display:none}.nav .long{display:none}.nav .short{display:inline}}
 @media(max-width:380px){.nav{gap:.55rem;font-size:.72rem}.masthead{gap:.4rem}}
+
+/* Caddie card: direct store badges (black, like the stores' own) */
+.store-badges{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:auto;padding-top:.4rem}
+.store-badge{display:inline-flex;flex-direction:column;justify-content:center;height:44px;padding:0 .9rem;
+  border-radius:9px;background:#000;color:#fff;border:1px solid #A6A6A6;text-decoration:none;line-height:1.1}
+.store-badge small{font-size:.6rem;letter-spacing:.02em}
+.store-badge span{font-weight:600;font-size:1rem}
+.store-badge:hover,.store-badge:focus-visible{border-color:var(--cobalt)}
+.card .learn-more{margin-top:.5rem}
