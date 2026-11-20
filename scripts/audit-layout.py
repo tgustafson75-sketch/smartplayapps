@@ -2,7 +2,7 @@
 # Run: python3 -m http.server 8765 (in repo root), then python3 scripts/audit-layout.py 390,768,1280,1512
 import sys, json, asyncio
 from playwright.async_api import async_playwright
-PAGES=["index.html","products.html","company.html","build.html","learn.html","store.html","investors.html","defender.html","smartpump.html","contact.html","card.html","privacy.html","media/index.html","media/access.html"]
+PAGES=["index.html","products.html","company.html","build.html","learn.html","store.html","investors.html","defender.html","smartpump.html","veterans.html","contact.html","card.html","privacy.html","media/index.html","media/access.html"]
 WIDTHS=[int(w) for w in (sys.argv[1] if len(sys.argv)>1 else "1280,1440,1512,1728").split(",")]
 JS=r"""
 () => {
