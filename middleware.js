@@ -1,10 +1,12 @@
 // Runs on Vercel before static files are served.
 // 1. /private-media/* (the source folder for private files) is never served directly.
 // 2. /media/private and everything under it needs a valid signed cookie, or it goes to /media/access.
+// 3. A page address typed or autocorrected with capitals (/Veterans) goes to its lowercase page (/veterans).
 // The cookie check here mirrors lib/media-auth.js (HMAC-SHA256 over "media-access:<exp>").
 
 export const config = {
-  matcher: ['/', '/investors', '/contact', '/robots.txt', '/sitemap.xml', '/private-media/:path*', '/media/private', '/media/private/:path*'],
+  // '/:page(...)' = any path with a capital letter and no dot (pages only; files like the .pdf deck keep their case)
+  matcher: ['/:page([^.]*[A-Z][^.]*)', '/', '/investors', '/contact', '/robots.txt', '/sitemap.xml', '/private-media/:path*', '/media/private', '/media/private/:path*'],
 };
 
 export const SMASHLAB_HOST = /^(www\.)?playsmashlab\.com$/;
@@ -16,6 +18,13 @@ export const SMASHLAB_PAGES = {
   '/robots.txt': '/smashlab-robots.txt',
   '/sitemap.xml': '/smashlab-sitemap.xml',
 };
+
+// Pages are all lowercase files, but a phone often capitalizes the first letter of a typed link.
+// Returns the lowercase address to send it to, or null when the path is already fine or is a file.
+export function lowercaseRedirect(pathname) {
+  if (!/[A-Z]/.test(pathname) || pathname.includes('.')) return null;
+  return pathname.toLowerCase();
+}
 
 const enc = new TextEncoder();
 
@@ -57,6 +66,11 @@ async function validCookie(header, secret) {
 
 export default async function middleware(request) {
   const url = new URL(request.url);
+
+  const lower = lowercaseRedirect(url.pathname);
+  if (lower) {
+    return new Response(null, { status: 308, headers: { Location: new URL(lower + url.search, request.url).toString() } });
+  }
 
   // playsmashlab.com shares this deployment and has its own pages at these paths.
   // (Static files are served before vercel.json rewrites, so this has to happen here.)
