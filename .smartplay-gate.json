@@ -8,6 +8,10 @@
     { "rule": "unauth-endpoints", "file": "api/report.js", "reason": "Self-Heal error and Report a problem relay: anonymous by design, 5 reports per IP per minute, scrubbed text only." },
     { "rule": "unauth-endpoints", "file": "api/media-access.js", "reason": "Exchanges the shared media access code for a signed cookie; checks MEDIA_ACCESS_CODE itself." },
     { "rule": "unauth-endpoints", "file": "api/media-private.js", "reason": "Re-checks the signed media cookie (lib/media-auth.js isAuthed) before serving any file; whitelist of fixed names." },
+    { "rule": "unauth-endpoints", "file": "api/defender-report.js", "reason": "Defender extension's anonymous report relay (smartplay-cybersecurity selfheal.ts): answers only chrome-extension origins, 5 per IP per minute, scrubbed allow-listed fields only." },
+    { "rule": "unauth-endpoints", "file": "api/pilot.js", "reason": "Public pilot request form (pilot.html): honeypot, 10 per IP and 3 per email per day via the atomic rate slot; writes only pilot_requests." },
+    { "rule": "unauth-endpoints", "file": "api/try/request.js", "reason": "Public try-code form (js/try-form.js): honeypot, 10 per IP and 3 per email per day via the atomic rate slot; issues a free 30-day code only." },
+    { "rule": "unauth-endpoints", "file": "api/try/verify.js", "reason": "Shared try-code check for SmartMotion and SmartBay: the code is the credential; owner bypass is decided by Caddie's throttled owner-verify, never here." },
     { "rule": "unauth-endpoints", "file": "lib/*.js", "reason": "Helpers, not handlers: media-auth and the Self-Heal relay are called by the routes above." }
   ],
   "mode": { "client-secrets": "block" }
