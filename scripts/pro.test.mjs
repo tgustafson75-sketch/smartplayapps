@@ -83,3 +83,25 @@ test('verdict: only the matching mode counts, and only paying statuses within th
   assert.deepEqual(P.verdict([], false, now), { pro: false, status: 'none', until: null });
   assert.equal(P.verdict([{ status: null, livemode: false }], false, now).status, 'pending');
 });
+
+test('checkout says "not open yet" while the app has no live Stripe link; refuses a bad key', async () => {
+  const handler = createRequire(import.meta.url)('../api/pro/checkout.js');
+  const call = (url) => new Promise((resolve) => {
+    const res = { statusCode: 200, headers: {}, setHeader(k, v) { this.headers[k.toLowerCase()] = v; }, end(b) { resolve({ status: this.statusCode, headers: this.headers, body: String(b || '') }); } };
+    handler({ url, headers: {} }, res);
+  });
+  const saved = process.env.PRO_LINK_DEFENDER;
+  delete process.env.PRO_LINK_DEFENDER;
+  try {
+    const closed = await call(`/api/pro/checkout?app=defender&key=${KEY}`);
+    assert.equal(closed.status, 503);
+    assert.equal(closed.body, 'Checkout is not open for this app yet.');
+    assert.equal((await call('/api/pro/checkout?app=defender&key=nope')).status, 400);
+    process.env.PRO_LINK_DEFENDER = 'https://buy.stripe.com/test_abc';
+    const open = await call(`/api/pro/checkout?app=defender&key=${KEY}`);
+    assert.equal(open.status, 302);
+    assert.equal(open.headers.location, `https://buy.stripe.com/test_abc?client_reference_id=defender_${KEY}`);
+  } finally {
+    if (saved === undefined) delete process.env.PRO_LINK_DEFENDER; else process.env.PRO_LINK_DEFENDER = saved;
+  }
+});
