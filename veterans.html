@@ -465,7 +465,13 @@ function setMode(m,quiet){B.mode=m;store.set('mode',m);$$('[data-mode]').forEach
 const F={q:'',state:'',needs:new Set(),who:new Set(),working:true,natl:true};
 let packet=new Set(store.get('packet',[]));
 
-Promise.all([fetch('/data/sparks/resources.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}),fetch('/data/sparks/extras.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null)]).then(([d,x])=>{if(x)EX={orgs:x.orgs||[],apps:x.apps||[],note:x.maker_note||''};const names=new Set(d.orgs.map(o=>o.name.toLowerCase()));d.orgs=d.orgs.concat(EX.orgs.filter(o=>!names.has(o.name.toLowerCase())));init(d)}).catch(e=>{
+// Data lives in Supabase (table sparks_files, one row per file). The key is the public publishable key: read-only.
+const SB='https://yjxitkapnzhbbnarwfdg.supabase.co/rest/v1/sparks_files?select=body&name=eq.';
+const SB_KEY='sb_publishable_jEtQ0BwMx33c36KZDD-8Xw_BRh9M9k8';
+// A failed load is thrown outside the promise chain so /js/selfheal.js reports it as a client error.
+function reportLoad(file,e){const m='Sparks data '+file+' did not load: '+(e&&e.message||e);setTimeout(()=>{throw new Error(m)})}
+function sbFile(file){return fetch(SB+file,{cache:'no-store',headers:{apikey:SB_KEY}}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}).then(rows=>{if(!rows||!rows[0]||!rows[0].body)throw new Error('no row');return rows[0].body})}
+Promise.all([sbFile('resources.json').catch(e=>{reportLoad('resources.json',e);throw e}),sbFile('extras.json').catch(e=>{reportLoad('extras.json',e);return null})]).then(([d,x])=>{if(x)EX={orgs:x.orgs||[],apps:x.apps||[],note:x.maker_note||''};const names=new Set(d.orgs.map(o=>o.name.toLowerCase()));d.orgs=d.orgs.concat(EX.orgs.filter(o=>!names.has(o.name.toLowerCase())));init(d)}).catch(e=>{
   $('#cards').innerHTML='<div class="empty">The program list didn\'t load. Refresh the page to try again.</div>';$('#mastMeta').textContent='Data unavailable';
 });
 
