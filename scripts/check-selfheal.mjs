@@ -38,7 +38,7 @@ for (const f of pages) {
   const f0 = s.indexOf('<footer');
   const footer = f0 === -1 ? '' : s.slice(f0, s.indexOf('</footer>', f0));
   if (!footer) problems.push(`${name}: no <footer>`);
-  else if (!/<a href="#" data-report-problem>Report a problem<\/a>/.test(footer)) problems.push(`${name}: no Report a problem link in the footer`);
+  else if (!/<a href="(?:#|\/[^"]*)" data-report-problem>Report a problem<\/a>/.test(footer)) problems.push(`${name}: no Report a problem link in the footer`);
 }
 
 if (problems.length) {
