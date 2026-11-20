@@ -163,6 +163,9 @@ blockquote{margin:0 0 2rem;font-family:Sora;font-weight:400;font-size:clamp(1.15
 .vet{display:inline-flex;align-items:center;gap:.45rem;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--silver);border:1px solid var(--rule);border-radius:100px;padding:.3rem .8rem}
 footer{border-top:1px solid var(--rule-soft);padding-block:2.4rem;color:var(--silver-dim);font-size:.86rem}
 footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--rule)}
+
+/* Veterans link in the nav (2026-11-20): narrow phones drop the wordmark (the S mark stays) so the nav still fits at 320px */
+@media(max-width:400px){.wordmark{display:none}.nav a.nav-vet{display:inline-flex}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -184,6 +187,7 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
   <nav class="nav">
     <a class="home" href="/#products">All products</a>
     <a href="/media">Media</a>
+    <a class="nav-vet" href="/veterans">Veterans</a>
     <a class="btn primary" href="/contact?product=Defender">Join the lab</a>
   </nav>
 </div>

@@ -201,6 +201,8 @@ main{padding-block:20px 60px}
 .sp-nav{display:flex;gap:1.2rem;align-items:center;font-size:.9rem;color:#D1D5DB}
 .sp-nav a{text-decoration:none}
 .sp-nav .sp-home{display:none}@media(min-width:640px){.sp-nav .sp-home{display:inline}}
+/* Veterans link in the nav (2026-11-20): narrow phones drop the wordmark (the S mark stays) so the nav fits at 320px */
+@media(max-width:400px){.sp-wordmark{display:none}}
 .sp-foot{border-top:1px solid #161C39;padding-block:2.4rem;color:#8891A8;font-size:.86rem}
 .sp-foot a{color:#D1D5DB;text-decoration:none;border-bottom:1px solid #1E254A}
 .sp-foot .social a{border-bottom:1px solid #1E254A}
@@ -225,6 +227,7 @@ main{padding-block:20px 60px}
   <nav class="sp-nav" aria-label="SmartPlay AI">
     <a class="sp-home" href="/#products">All products</a>
     <a class="sp-home" href="/store">Store</a>
+    <a href="/veterans" aria-current="page">Veterans</a>
     <a href="/contact">Contact</a>
   </nav>
 </div></div>

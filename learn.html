@@ -186,6 +186,9 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
 .know.hl{background:var(--indigo);border-color:var(--violet)}
 .know.hl .n{color:var(--violet-hi)}
 .know.hl p{color:var(--silver)}
+
+/* Veterans link in the nav (2026-11-20): narrow phones drop the wordmark (the S mark stays) so the nav still fits at 320px */
+@media(max-width:400px){.wordmark{display:none}.nav a.nav-vet{display:inline-flex}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -207,6 +210,7 @@ footer a{color:var(--silver);text-decoration:none;border-bottom:1px solid var(--
   <nav class="nav">
     <a class="home" href="/products">All products</a>
     <a href="/media">Media</a>
+    <a class="nav-vet" href="/veterans">Veterans</a>
     <a class="btn primary" href="https://build.smartplayapps.com">Start free</a>
   </nav>
 </div>

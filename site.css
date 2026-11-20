@@ -350,3 +350,60 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
 .store-badge span{font-weight:600;font-size:1rem}
 .store-badge:hover,.store-badge:focus-visible{border-color:var(--cobalt)}
 .card .learn-more{margin-top:.5rem}
+
+/* Phones (<=640px only, 2026-11-20): product and tool cards become compact rows (64px square thumbnail,
+   name + one-line description + action), section spacing tightens and heroes are capped so the first
+   card shows on a 390x844 screen. Nothing here applies above 640px, so desktop is unchanged. */
+@media(max-width:640px){
+  /* masthead: with Veterans in the nav, the links wrap onto a second line instead of running off-screen */
+  .masthead .nav{flex-wrap:wrap;justify-content:flex-end;row-gap:.25rem;column-gap:.85rem;white-space:normal;min-width:0}
+  .masthead{padding-block:1rem}
+  section{padding-block:2rem}
+  .hero{padding-block:.6rem 1.2rem}
+  .hero h1{font-size:2.1rem;margin-block:.6rem .7rem}
+  .hero .lede{font-size:.95rem;line-height:1.5}
+  .hero .buttons{margin-top:1rem}
+  .hero .hero-new{margin-top:.7rem;font-size:.85rem}
+  .hero .vet{margin-top:.8rem!important}
+  .hero .wave{display:none}
+  /* home: the featured cards come straight after the hero; the channel video follows them */
+  main:has(> #featured){display:flex;flex-direction:column}
+  main:has(> #featured) > #featured{order:-1;border-top:none;padding-top:.4rem}
+  .head{margin-bottom:1.1rem}
+  .eco{gap:.6rem}
+  .card:has(> .shot){display:grid;grid-template-columns:64px minmax(0,1fr);column-gap:.85rem;row-gap:0;
+    padding:.85rem;align-content:start;align-items:start}
+  .card:has(> .shot) > .shot{grid-column:1;grid-row:1/span 30;width:64px;height:64px;aspect-ratio:1;margin:0;
+    border:1px solid var(--rule-soft);border-radius:8px;position:relative}
+  .card:has(> .shot) > .shot img{object-fit:cover;object-position:center top}
+  .card:has(> .shot) > :not(.shot){grid-column:2;min-width:0}
+  /* the thumbnail spans many implicit rows, so spacing comes from margins, not row-gap (empty rows would add gaps) */
+  .card:has(> .shot) > :not(.shot) + :not(.shot){margin-top:.3rem}
+  .card:has(> .shot) .hero-body{display:flex;flex-direction:column;gap:.3rem;padding:0}
+  .card:has(> .shot) .card-head h3{font-size:1rem}
+  .card:has(> .shot) .card-head .sub{font-size:.8rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .card:has(> .shot) .card-head > div{min-width:0}
+  /* one line of description: the tagline when the card has one, otherwise the first line of the text */
+  .card:has(> .shot) .card-head:has(.sub) ~ p,
+  .card:has(> .shot) .card-head:has(.sub) ~ .build-list,
+  .card:has(> .shot) .card-head:has(.sub) ~ .price-note{display:none}
+  .card:has(> .shot) p{font-size:.85rem;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+  .card:has(> .shot) .try{margin-top:0;padding-top:.1rem;font-size:.84rem}
+  .card:has(> .shot) .try2{margin-left:0}
+  .card:has(> .shot) .btn{margin-top:.2rem!important;padding:.5rem .9rem;font-size:.85rem;align-self:flex-start;justify-self:start}
+  .card:has(> .shot) .store-badges{padding-top:.1rem;gap:.4rem}
+  .card:has(> .shot) .store-badge{height:36px;padding:0 .65rem}
+  .card:has(> .shot) .store-badge span{font-size:.85rem}
+  /* /pilot: the hero render gives way so the track cards show first; track cards use the same row layout */
+  .split > .fig{display:none}
+  .tracks{gap:.6rem}
+  .tracks .card:has(> .imgs){display:grid;grid-template-columns:64px minmax(0,1fr);column-gap:.85rem;row-gap:0;padding:.85rem;align-content:start;align-items:start}
+  .tracks .card > :not(.imgs) + :not(.imgs){margin-top:.3rem}
+  .tracks .card > .imgs{grid-column:1;grid-row:1/span 30;display:grid;grid-template-columns:64px;gap:.4rem;margin:0}
+  .tracks .card > .imgs .fig{width:64px;height:64px;border-radius:8px}
+  .tracks .card > .imgs .fig img{width:100%;height:100%;object-fit:cover}
+  .tracks .card > .imgs .concept{top:2px;left:2px;font-size:.42rem;letter-spacing:.06em;padding:1px 3px}
+  .tracks .card > :not(.imgs){grid-column:2;min-width:0}
+  .tracks .card .try{margin-top:0}
+  .card:has(> .shot) .concept{top:2px;left:2px;font-size:.42rem;letter-spacing:.06em;padding:1px 3px}
+}
