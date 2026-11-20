@@ -339,7 +339,9 @@ footer a:hover,footer a:focus-visible{color:var(--cobalt-hi);border-color:var(--
 
 /* Masthead fit (2026-11-15): with Pilot in the nav, tablets 601-840px drop the wordmark and use the
    short Build label, and the narrowest phones tighten the nav, so no width scrolls sideways. */
-@media(max-width:840px){.brand .wordmark{display:none}.nav .long{display:none}.nav .short{display:inline}}
+@media(max-width:1023px){.brand .wordmark{display:none}.nav .long{display:none}.nav .short{display:inline}}
+/* With Investors and Veterans in the nav (2026-11-20), the compact masthead runs to 1023px and its links wrap to a second line */
+@media(max-width:1023px){.masthead .nav{flex-wrap:wrap;justify-content:flex-end;row-gap:.25rem;column-gap:.85rem;white-space:normal;min-width:0}}
 @media(max-width:380px){.nav{gap:.55rem;font-size:.72rem}.masthead{gap:.4rem}}
 
 /* Caddie card: direct store badges (black, like the stores' own) */
